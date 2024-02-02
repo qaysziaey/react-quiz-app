@@ -3,19 +3,28 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --soft-blue: #89ABE3FF;
-  --baby-blue: #A2CFFE;
-  --blue: #007BFF;
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+  --soft-blue: #89abe3ff;
+  --baby-blue: #a2cffe;
+  --blue: #064f9d;
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
   }
 }
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #043365;
 }
