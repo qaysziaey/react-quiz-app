@@ -42,8 +42,8 @@ export function Question(props) {
           </form>
         </div>
         <div className={styles["buttons-contanier"]}>
-          <button className={styles.button}>Back</button>
-          <button className={styles.button}>Next</button>
+          <button className="button">Back</button>
+          <button className="button">Next</button>
         </div>
       </div>
     </>

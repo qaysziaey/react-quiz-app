@@ -14,7 +14,7 @@ function App() {
   const [selected_page, setSelected_Page] = useState(2);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-  const [pull_of_questions, setPull_of_questions] = useState([]);
+  const [pull_of_questions, setPull_of_questions] = useState([2]);
 
   return (
     <>
