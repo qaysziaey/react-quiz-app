@@ -1,49 +1,63 @@
+
 import styles from "./Question.module.css";
 import { data_of_questions } from "../data/data.js";
 import { useState } from "react";
 
-export function Question(props) {
-  const [getData, setGetData] = useState(data_of_questions);
+export function Question({ user, pull_of_questions, onChangePage }) {
 
-  //   function handleQuestions() {
-  //     getData.map((data) => {
-  //       console.log(data);
-  //     });
-  //   }
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  const handleNextQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+  };
+  const hanlePreviousQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+  };
+
+  const currentQuestion = data_of_questions.questions[currentQuestionIndex];
+
+  if (!currentQuestion) {
+    onChangePage(3);
+    // All questions have been answered
+    return (
+      <div className={styles["questions-container"]}>
+        <h1>Quiz Completed</h1>
+        <button className="button" onClick={() => {
+                    onChangePage(4);
+                }}>To Page Results</button>
+        {/* Display quiz results or any other completion message */}
+      </div>
+    );
+  }
 
   return (
     <>
       <div className={styles["questions-container"]}>
         <h1>QUIZ QUESTIONS</h1>
-        <h2 className={styles["rounds-counter"]}>5/8</h2>
+        <h2 className={styles["rounds-counter"]}>{currentQuestion.id}/4</h2>
         <div className={styles["questions"]}>
+          <h2>{currentQuestion.question.text}</h2>
           <form>
-            {data_of_questions.prizes_by_points.map((prize, index) => {})}
-            <p className={styles["question-text"]}>
-              Wie selektiert man ein Element mit id=demo?
-            </p>
-            <label>
-              <input name="a" type="checkbox" value="option1" checked />
-              #demo
-            </label>
-
-            <label>
-              <input name="b" type="checkbox" value="option1" />
-              .demo
-            </label>
-            <label>
-              <input name="c" type="checkbox" value="option1" />
-              Demo
-            </label>
-            <label>
-              <input name="d" type="checkbox" value="option1" />
-              *demo
-            </label>
+            {currentQuestion.answers.map((answer) => (
+              <label key={answer.number} className={styles["answer"]}>
+                <input
+                  type="checkbox"
+                  value={answer.text}
+                  checked={""}
+                  // Add onChange handler if you need to handle user selections
+                />
+                {answer.text}
+              </label>
+            ))}
           </form>
         </div>
         <div className={styles["buttons-contanier"]}>
-          <button className="button">Back</button>
-          <button className="button">Next</button>
+          <button className="button" onClick={() => {
+                    hanlePreviousQuestion();
+                }}>Back</button>
+          <button className="button" onClick={() => {
+                    handleNextQuestion();
+                }}>Next</button>
         </div>
       </div>
     </>

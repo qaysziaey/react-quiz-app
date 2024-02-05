@@ -7,17 +7,142 @@
   width: 300px;
   height: 500px;
 }
-.score1 {
-  font-size: 1.5rem;
+.root:hover {
+  background-color: #7bbfea;
 }
 
 .score {
-  font-size: 2rem;
-  color: #007bff;
-  padding: 20px;
+  font-size: 1.4rem;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.heightScore {
+  color: green;
+}
+
+.mediumScore {
+  color: orange;
+}
+
+.lowScore {
+  color: red;
+}
+
+.monkey {
+  font-family: "Comic Sans MS", cursive;
+  color: #ff69b4;
+  font-size: 18px;
+}
+
+.funText {
+  font-family: "Comic Sans MS", cursive;
+  color: #ff69b4;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+.funnyAnimation {
+  animation: funnyBounce 2s infinite;
+}
+@keyframes funnyBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes monkeyDance {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.monkey {
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  position: relative;
+  animation: monkeyDance 2s infinite;
 }
 
 .message {
-  font-size: 1.5rem;
-  color: #89abe3ff;
+  font-family: "Comic Sans MS", cursive;
+  color: #ff69b4;
+  font-size: 18px;
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.message:hover {
+  background-color: #ffd1e0;
+}
+.green {
+  animation: bounce 1s ease infinite;
+}
+
+.orange {
+  animation: shake 0.8s ease infinite;
+}
+
+.red {
+  animation: pulse 1s ease infinite;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }

@@ -1,80 +1,147 @@
-export const data_of_questions =
-{
-    prizes_by_points:[
+export const data_of_questions = {
+  prizes_by_points: [
+    {
+      start: 0,
+      end: 10,
+      text: "You are looooser!! 💩",
+    },
+    {
+      start: 10,
+      end: 19,
+      text: "You are not looooser!! 😵‍💫",
+    },
+    {
+      start: 20,
+      end: 29,
+      text: "You are normal tip!! 🤠",
+    },
+    {
+      start: 30,
+      end: 39,
+      text: "You are good man!! 😤",
+    },
+    {
+      start: 40,
+      end: 100,
+      text: "You are Superman!! 🤡",
+    },
+  ],
+  questions: [
+    {
+      id: 1,
+      question: {
+        text: "Wie selektiert man ein Element mit id=demo?",
+        points_for_right_answer: 10,
+      },
+      answers: [
         {
-            start: 0,
-            end: 10, 
-            text: "You are looooser!! 💩"
+          number: 1,
+          text: "#demo",
+          richtich: true,
         },
         {
-            start: 10,
-            end: 19, 
-            text: "You are not looooser!! 😵‍💫"
+          number: 2,
+          text: ".demo",
+          richtich: false,
         },
         {
-            start: 20,
-            end: 29, 
-            text: "You are normal tip!! 🤠"
+          number: 3,
+          text: "Demo",
+          richtich: false,
         },
         {
-            start: 30,
-            end: 39, 
-            text: "You are good man!! 😤"
+          number: 4,
+          text: "*demo",
+          richtich: false,
+        },
+      ],
+    },
+    {
+      id: 2,
+      question: {
+        text: "Wofür steht CSS?",
+        points_for_right_answer: 15,
+      },
+      answers: [
+        {
+          number: 1,
+          text: "Computer Style Sheets",
+          richtich: false,
         },
         {
-            start: 40,
-            end: 100, 
-            text: "You are Superman!! 🤡"
-        },
-    ],
-    questions:[
-        {
-            number: 4,
-            question: {
-                text: "Wie viel und wann?",
-                points_for_right_answer: 10,
-            },
-            answers:[
-                {
-                    number: 1,
-                    text: "100 und Heute",
-                    richtich: true,
-                },
-                {
-                    number: 2,
-                    text: "10 und Zukunft",
-                    richtich: false
-                },
-                {
-                    number: 3,    
-                    text: "50 und Gestern",
-                    richtich: false
-                }
-            ]
+          number: 2,
+          text: "Cascading Style Sheets",
+          richtich: true,
         },
         {
-            number: 6,
-            question: {
-                text: "Wo und wie?",
-                points_for_right_answer: 15,
-            },
-            answers:[
-                {
-                    number: 1,
-                    text: "Stadt und mit Bus",
-                    richtich: false,
-                },
-                {
-                    number: 2,
-                    text: "Dorf und mit Traktor",
-                    richtich: true,
-                },
-                {
-                    number: 3,
-                    antwort: "Meer und mit Auto",
-                    text: false
-                }
-            ]
-        }
-    ]   
-}
+          number: 3,
+          antwort: "Colored Style Sheets",
+          text: false,
+        },
+        {
+          number: 4,
+          antwort: "Creative Style Sheets",
+          text: false,
+        },
+      ],
+    },
+    {
+      id: 3,
+      question: {
+        text: "Welche CSS Syntax ist korrekt?",
+        points_for_right_answer: 15,
+      },
+      answers: [
+        {
+          number: 1,
+          text: "{body: color=black;}",
+          richtich: false,
+        },
+        {
+          number: 2,
+          text: " {body; color=black;}",
+          richtich: false,
+        },
+        {
+          number: 3,
+          antwort: "body {color: black;}",
+          text: true,
+        },
+        {
+          number: 4,
+          antwort: "body: color=black;",
+          text: false,
+        },
+      ],
+    },
+    {
+      id: 4,
+      question: {
+        text: "Was ist der Defaultwert für position?",
+        points_for_right_answer: 15,
+      },
+      answers: [
+        {
+          number: 1,
+          text: "relative",
+          richtich: false,
+        },
+        {
+          number: 2,
+          text: "fixed",
+          richtich: false,
+        },
+        {
+          number: 3,
+          antwort: "absolute",
+          text: false,
+        },
+        {
+          number: 4,
+          antwort: "static",
+          text: true,
+        },
+      ],
+    },
+  ],
+};
