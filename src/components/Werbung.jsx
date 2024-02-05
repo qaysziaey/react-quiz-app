@@ -1,6 +1,6 @@
 import styles from "./Werbung.module.css";
 
-export function Werbung(props) {
+export function Werbung({ user, onChangePage }) {
   return (
     <>
       <div className={styles["werbung-container"]}>
@@ -17,7 +17,9 @@ export function Werbung(props) {
           <span>💰</span>
           <span>💰</span>
         </div>
-        <button className={styles.button}>Close Ad</button>
+        <button className={styles.Adbutton+' button'} onClick={() => {
+                    onChangePage(4);
+                }}>Close Ad</button>
       </div>
     </>
   );

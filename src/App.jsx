@@ -53,7 +53,7 @@ function App() {
         ) : selected_page == 4 ? (
           <Results user={user} users={users} userid={user.id} onChangePage={changePage} />
         ) : selected_page == 3 ? (
-          <Werbung />
+          <Werbung user={user} onChangePage={changePage} />
         ) : (
           <Main_page user={user} onChangePage={changePage} onStartWithUser={startWithUser} />
         )}
