@@ -143,5 +143,34 @@ export const data_of_questions = {
         },
       ],
     },
+    {
+      id: 5,
+      question: {
+        text: "Was ist der Defaultwert für position?",
+        points_for_right_answer: 15,
+      },
+      answers: [
+        {
+          number: 1,
+          text: "relative",
+          richtich: false,
+        },
+        {
+          number: 2,
+          text: "fixed",
+          richtich: false,
+        },
+        {
+          number: 3,
+          text: "absolute",
+          richtich: false,
+        },
+        {
+          number: 4,
+          text: "static",
+          richtich: true,
+        },
+      ],
+    },
   ],
 };

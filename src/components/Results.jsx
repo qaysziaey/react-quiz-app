@@ -5,13 +5,16 @@ export function Results({user, users, onChangePage, userAnswers }) {
   const [totalScore, setTotalScore] = useState(0);
   const [message, setMessage] = useState({ text: "", color: "" });
 
-  userExample = {
+  console.log(user)
+  console.log(users)
+
+  const userExample = {
     username: 'Oleksii',
     avatar: '😛',
     result: 20
   };
 
-  usersExample = [
+  const usersExample = [
     {
       username: 'Raghd',
       avatar: '🥶',
@@ -33,20 +36,20 @@ export function Results({user, users, onChangePage, userAnswers }) {
   ];
 
   useEffect(() => {
-    if (props.userAnswers && props.userAnswers.length > 0) {
-      const score = props.userAnswers.reduce(
+    if (userAnswers && userAnswers.length > 0) {
+      const score = userAnswers.reduce(
         (acc, value) => acc + (value ? 1 : 0),
         0
       );
       setTotalScore(score);
 
-      const maxScore = props.userAnswers.length;
+      const maxScore = userAnswers.length;
       const percentage = (score / maxScore) * 100;
       const resultAnimation = animationForResult(percentage);
 
       setMessage(resultAnimation);
     }
-  }, [props.userAnswers]);
+  }, [userAnswers]);
 
   return (
     <>
@@ -75,8 +78,8 @@ export function Results({user, users, onChangePage, userAnswers }) {
         <h2>{message.text}</h2>
       </div>
       <div className={styles.message}>
-        {props.userAnswers
-          ? `You scored ${totalScore} out of ${props.userAnswers.length}!`
+        {userAnswers
+          ? `You scored ${totalScore} out of ${userAnswers.length}!`
           : "No answers provided"}
       </div>
     </>

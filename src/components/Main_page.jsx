@@ -6,14 +6,14 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     const avatars_array = [
         "",
         "😛",
-        "🙁",
+        "🤪",
         "🥶",
         "🥵",
     ];
 
     const [avatar, setAvatar] = useState(user.avatar?user.avatar:'');
     const [username, setUsername] = useState(user.username?user.username:'');
-    const [userAnswers, setUserAnswers] = useState(user.userAnswers?user.userAnswers:[]);
+    const [answers, setAnswers] = useState(user.answers?user.answers:[]);
     const [totalScore, setTotalScore] = useState(user.totalScore?user.totalScore:0);
     
     const avatar_print = avatars_array.map((value) => {
@@ -42,7 +42,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
                             {
                                 username,
                                 avatar,
-                                userAnswers,
+                                answers,
                                 totalScore
                             }
                         );

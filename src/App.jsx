@@ -12,7 +12,7 @@ import { Werbung } from "./components/Werbung.jsx";
 function App() {
 
   const [count, setCount] = useState(0);
-  const [selected_page, setSelected_Page] = useState(2);
+  const [selected_page, setSelected_Page] = useState(1);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
 //  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
@@ -42,13 +42,13 @@ function App() {
     setUser({
       username: props.username,
       avatar: props.avatar,
-      answers: props.userAnswers,
+      answers: props.answers,
       result: props.totalScore
     })
   }
  
-  console.log(user)
-  console.log(selected_page)
+  //  console.log(user)
+  //console.log(selected_page)
 
   return (
     <>
@@ -64,8 +64,7 @@ function App() {
         {selected_page == 5 ? (
           <Learn_more />
         ) : selected_page == 2 ? (
-          <Question user={user} users={users} onChangePage={changePage}
-           />
+          <Question user={user} users={users} onChangePage={changePage} onStartWithUser={startWithUser}/>
         ) : selected_page == 4 ? (
           <Results user={user} users={users} onChangePage={changePage} />
         ) : selected_page == 3 ? (
