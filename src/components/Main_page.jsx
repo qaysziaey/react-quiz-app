@@ -13,6 +13,8 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
 
     const [avatar, setAvatar] = useState(user.avatar?user.avatar:'');
     const [username, setUsername] = useState(user.username?user.username:'');
+    const [userAnswers, setUserAnswers] = useState(user.userAnswers?user.userAnswers:[]);
+    const [totalScore, setTotalScore] = useState(user.totalScore?user.totalScore:0);
     
     const avatar_print = avatars_array.map((value) => {
         /*
@@ -39,7 +41,9 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
                         onStartWithUser(
                             {
                                 username,
-                                avatar
+                                avatar,
+                                userAnswers,
+                                totalScore
                             }
                         );
                     }else{

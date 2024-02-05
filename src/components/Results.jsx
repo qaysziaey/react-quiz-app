@@ -1,9 +1,36 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Results.module.css";
 
-export function Results(props) {
+export function Results({user, users, onChangePage, userAnswers }) {
   const [totalScore, setTotalScore] = useState(0);
   const [message, setMessage] = useState({ text: "", color: "" });
+
+  userExample = {
+    username: 'Oleksii',
+    avatar: '😛',
+    result: 20
+  };
+
+  usersExample = [
+    {
+      username: 'Raghd',
+      avatar: '🥶',
+      answers: [10,25,5,5],
+      result: 45
+    },
+    { //blink line with this user
+      username: 'Oleksii',
+      avatar: '😛',
+      answers: [10,15,25,5],
+      result: 55
+    },
+    {
+      username: 'Qais',
+      avatar: '🥶',
+      answers: [20,5,10,15],
+      result: 50
+    }
+  ];
 
   useEffect(() => {
     if (props.userAnswers && props.userAnswers.length > 0) {

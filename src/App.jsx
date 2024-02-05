@@ -15,9 +15,25 @@ function App() {
   const [selected_page, setSelected_Page] = useState(2);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-  const [pull_of_questions, setPull_of_questions] = useState([2]);
+//  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
 
- 
+  //id of questuions
+/*
+  users = [
+    {
+      username: 'skad',
+      avatar: props.avatar,
+      result: props.totalScore  
+    },
+    {
+      username: props.username,
+      avatar: props.avatar,
+      result: props.totalScore  
+    }
+  ]
+*/
+
+
   function changePage(value) {
     setSelected_Page(value)
   }
@@ -25,7 +41,9 @@ function App() {
   function startWithUser(props) {
     setUser({
       username: props.username,
-      avatar: props.avatar
+      avatar: props.avatar,
+      answers: props.userAnswers,
+      result: props.totalScore
     })
   }
  
@@ -46,12 +64,10 @@ function App() {
         {selected_page == 5 ? (
           <Learn_more />
         ) : selected_page == 2 ? (
-          <Question user={user} 
-              pull_of_questions={pull_of_questions} 
-              onChangePage={changePage}
+          <Question user={user} users={users} onChangePage={changePage}
            />
         ) : selected_page == 4 ? (
-          <Results user={user} users={users} userid={user.id} onChangePage={changePage} />
+          <Results user={user} users={users} onChangePage={changePage} />
         ) : selected_page == 3 ? (
           <Werbung user={user} onChangePage={changePage} />
         ) : (

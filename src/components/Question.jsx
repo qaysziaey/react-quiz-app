@@ -3,7 +3,7 @@ import styles from "./Question.module.css";
 import { data_of_questions } from "../data/data.js";
 import { useState } from "react";
 
-export function Question({ user, pull_of_questions, onChangePage }) {
+export function Question({ user, users, onChangePage }) {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
@@ -22,9 +22,7 @@ export function Question({ user, pull_of_questions, onChangePage }) {
     return (
       <div className={styles["questions-container"]}>
         <h1>Quiz Completed</h1>
-        <button className="button" onClick={() => {
-                    onChangePage(4);
-                }}>To Page Results</button>
+        <button className="button">To Page Results</button>
         {/* Display quiz results or any other completion message */}
       </div>
     );
