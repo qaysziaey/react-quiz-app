@@ -5,6 +5,8 @@
   text-align: center;
 }
 
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -42,7 +44,7 @@
 }
 
 button {
-  margin: 5px 0;
+  margin: 10px 0;
 }
 
 .All_app {
@@ -59,33 +61,4 @@ button {
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
-}
-.button {
-  border: 2px solid rgba(193, 223, 255, 1);
-  padding: 12px 15px;
-  min-width: 120px;
-  border-radius: 50px;
-  font-size: 1em;
-  z-index: 2;
-  outline: 6px solid #064f9d;
-  /* background-color: #064f9d; */
-  background: rgb(255, 255, 255);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgb(166, 193, 221) 100%
-  );
-
-  color: #064f9d;
-  transition: all 0.1s ease-in-out;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-
-  &:hover {
-    background-color: #043365;
-    outline: 3px solid #064f9d;
-  }
 }
