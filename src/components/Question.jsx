@@ -6,68 +6,49 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
   //   console.log(user)
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState([]);
-  const [totalScore, setTotalScore] = useState(0);
   const [checkBoxState, setCheckBoxState] = useState([]);
 
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
-  const hanlePreviousQuestion = () => {
+  const handlePreviousQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
   };
 
-  let temp_user_answers = [];
-  let temp_checkBoxState = [];
   let username = user.username;
   let avatar = user.avatar;
 
-  // console.log(currentQuestionIndex)
+  // Derived state
 
-  if (answers[0] == undefined) {
-    data_of_questions.questions.forEach((value, index) => {
-      temp_user_answers.push(-1);
-    });
+  const answers = data_of_questions.questions.map((question, index) => {
+    if (checkBoxState[index] === undefined) {
+      return -1;
+    }
+    if (question.answers[checkBoxState[index]].correct) {
+      return question.question.points_for_right_answer;
+    } else {
+      return 0;
+    }
+  });
 
-    data_of_questions.questions[currentQuestionIndex].answers.forEach(
-      (value, index) => {
-        temp_checkBoxState.push(-1);
-      }
-    );
-    setAnswers(temp_user_answers);
-  } else {
-    temp_user_answers = answers;
-    temp_checkBoxState = checkBoxState;
-  }
-
-  //  console.log(temp_user_answers)
+  const totalScore = answers.reduce((acc, cur) => {
+    return acc + (cur >= 0 ? cur : 0);
+  }, 0);
 
   const onCheckAnswer = (value) => {
-    temp_checkBoxState[currentQuestionIndex] = value;
-    if (
-      data_of_questions.questions[currentQuestionIndex].answers[value].richtich
-    ) {
-      temp_user_answers[currentQuestionIndex] =
-        data_of_questions.questions[
-          currentQuestionIndex
-        ].question.points_for_right_answer;
+    if (currentQuestionIndex < checkBoxState.length) {
+      setCheckBoxState(
+        checkBoxState.map((state, index) => {
+          if (currentQuestionIndex === index) {
+            return Number(value);
+          } else {
+            return state;
+          }
+        })
+      );
     } else {
-      temp_user_answers[currentQuestionIndex] = 0;
+      setCheckBoxState([...checkBoxState, Number(value)]);
     }
-
-    setAnswers(temp_user_answers);
-    setCheckBoxState(temp_checkBoxState);
-
-    let temp_total_Score = 0;
-    temp_user_answers.forEach((value, index) => {
-      if (value >= 0) {
-        temp_total_Score += value;
-      }
-    });
-
-    setTotalScore(temp_total_Score);
-
-    // console.log(temp_user_answers)
 
     onStartWithUser({
       username,
@@ -75,8 +56,6 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
       answers,
       totalScore,
     });
-
-    //setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
   };
 
   const currentQuestion = data_of_questions.questions[currentQuestionIndex];
@@ -111,6 +90,8 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
 
   let temp_answers = currentQuestion.answers;
 
+  // Calculate derived state
+
   // console.log(temp_user_answers)
 
   return (
@@ -130,11 +111,8 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
                   type="radio"
                   value={key}
                   checked={
-                    temp_checkBoxState[currentQuestionIndex] == key
-                      ? true
-                      : false
+                    checkBoxState[currentQuestionIndex] == key ? true : false
                   }
-                  /*defaultChecked={temp_user_answers[currentQuestionIndex]>=0?true:false}*/
                   onChange={(event) => {
                     onCheckAnswer(event.target.value);
                   }}
@@ -152,7 +130,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
               if (currentQuestionIndex <= 0) {
                 onChangePage(1);
               } else {
-                hanlePreviousQuestion();
+                handlePreviousQuestion();
               }
             }}
           >

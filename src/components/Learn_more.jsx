@@ -4,8 +4,7 @@ export function Learn_more(props){
     
     return (
         <>
-            <h1>Learn more</h1>
-            <h2>QUUUUIZZZ</h2>
+            <h1>QUUUUIZZZ</h1>
             <p>
                 is a bester game 
                 of the world!!!
