@@ -1,39 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Results.module.css";
 
-export function Results({user, users, onChangePage, userAnswers }) {
+export function Results({
+  users,
+  user,
+  onChangePage,
+  userAnswers,
+  onStartWithUser,
+}) {
   const [totalScore, setTotalScore] = useState(0);
   const [message, setMessage] = useState({ text: "", color: "" });
-
-  console.log(user)
-  console.log(users)
-
-  const userExample = {
-    username: 'Oleksii',
-    avatar: '😛',
-    result: 20
-  };
-
-  const usersExample = [
-    {
-      username: 'Raghd',
-      avatar: '🥶',
-      answers: [10,25,5,5],
-      result: 45
-    },
-    { //blink line with this user
-      username: 'Oleksii',
-      avatar: '😛',
-      answers: [10,15,25,5],
-      result: 55
-    },
-    {
-      username: 'Qais',
-      avatar: '🥶',
-      answers: [20,5,10,15],
-      result: 50
-    }
-  ];
 
   useEffect(() => {
     if (userAnswers && userAnswers.length > 0) {
@@ -65,10 +41,43 @@ export function Results({user, users, onChangePage, userAnswers }) {
         >
           Your results
         </h1>
+        <div className={styles.userExample}>
+          <h3>Olexi:</h3>
+          <div>
+            <p>{"Avatar:🥳"}</p>
+            <p>{"totalscore:67"}</p>
+          </div>
+          <h3>Quis:</h3>
+          <div>
+            <p>{"Avatar:🫢"}</p>
+            <p>{"totalscore:67"}</p>
+          </div>
+          <h3>Raghd:</h3>
+          <div>
+            <p>{"Avatar:🥳"}</p>
+            <p>{"totalscore:100"}</p>
+          </div>
+        </div>
         <div className={`${styles.funText} ${styles.funnyAnimation}`}>
           Having Fun with us!
         </div>
       </div>
+      <div className={styles.messageContainer1}>
+        <h1>
+          {
+            "Wow, youre a quiz master! Are you sure you havent secretly been eating a dictionary for breakfast?"
+          }
+        </h1>
+      </div>
+      <button
+        className={styles.button}
+        onClick={() => {
+          onChangePage(1);
+        }}
+      >
+        Play again
+      </button>
+
       <div
         className={`${styles.messageContainer}${
           message.color && styles[message.color]
@@ -79,7 +88,7 @@ export function Results({user, users, onChangePage, userAnswers }) {
       </div>
       <div className={styles.message}>
         {userAnswers
-          ? `You scored ${totalScore} out of ${userAnswers.length}!`
+          ? `${user.username} scored ${totalScore} out of ${userAnswers.length}!`
           : "No answers provided"}
       </div>
     </>

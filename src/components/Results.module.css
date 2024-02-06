@@ -6,7 +6,9 @@
   border-radius: 23px;
   width: 300px;
   height: 500px;
+  margin-left: 10px;
 }
+
 .root:hover {
   background-color: #7bbfea;
 }
@@ -41,9 +43,11 @@
   text-align: center;
   margin-top: 20px;
 }
+
 .funnyAnimation {
   animation: funnyBounce 2s infinite;
 }
+
 @keyframes funnyBounce {
   0%,
   20%,
@@ -99,6 +103,7 @@
 .message:hover {
   background-color: #ffd1e0;
 }
+
 .green {
   animation: bounce 1s ease infinite;
 }
@@ -145,4 +150,27 @@
   50% {
     transform: scale(1.1);
   }
+}
+
+.activePlayer {
+  color: purple;
+}
+.messageContainer1 {
+  display: flex;
+  top: 0;
+  font-family: "Comic Sans MS", cursive;
+  color: blue;
+  font-size: 8px;
+  text-align: center;
+  margin: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #a2cffe;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
