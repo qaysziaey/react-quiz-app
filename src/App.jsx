@@ -50,7 +50,9 @@ function App() {
     <div className="app-main-container">
       {selected_page !== 1 ? (
         <div className="closeProfileLine">
-          <span className="avatarProfile">{user.avatar} <span>{user.username}</span></span>
+          <span className="avatarProfile">
+            {user.avatar} <span>{user.username}</span>
+          </span>
           <button
             className="close-btn"
             onClick={(event) => {
@@ -63,7 +65,9 @@ function App() {
             <span>&#10005;</span>
           </button>
         </div>
-      ):''}
+      ) : (
+        ""
+      )}
 
       {selected_page === 5 ? (
         <Learn_more />
