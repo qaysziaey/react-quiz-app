@@ -25,6 +25,11 @@ export const data_of_questions = {
       end: 100,
       text: "You are Superman!! 🤡",
     },
+    {
+      start: 100,
+      end: 150,
+      text: "HyperChicken 🐔",
+    },
   ],
   questions: [
     {
@@ -37,22 +42,22 @@ export const data_of_questions = {
         {
           number: 1,
           text: "#demo",
-          richtich: true,
+          correct: true,
         },
         {
           number: 2,
           text: ".demo",
-          richtich: false,
+          correct: false,
         },
         {
           number: 3,
           text: "Demo",
-          richtich: false,
+          correct: false,
         },
         {
           number: 4,
           text: "*demo",
-          richtich: false,
+          correct: false,
         },
       ],
     },
@@ -66,22 +71,22 @@ export const data_of_questions = {
         {
           number: 1,
           text: "Computer Style Sheets",
-          richtich: false,
+          correct: false,
         },
         {
           number: 2,
           text: "Cascading Style Sheets",
-          richtich: true,
+          correct: true,
         },
         {
           number: 3,
           text: "Colored Style Sheets",
-          richtich: false,
+          correct: false,
         },
         {
           number: 4,
           text: "Creative Style Sheets",
-          richtich: false,
+          correct: false,
         },
       ],
     },
@@ -95,22 +100,22 @@ export const data_of_questions = {
         {
           number: 1,
           text: "{body: color=black;}",
-          richtich: false,
+          correct: false,
         },
         {
           number: 2,
           text: " {body; color=black;}",
-          richtich: false,
+          correct: false,
         },
         {
           number: 3,
           text: "body {color: black;}",
-          richtich: true,
+          correct: true,
         },
         {
           number: 4,
           text: "body: color=black;",
-          richtich: false,
+          correct: false,
         },
       ],
     },
@@ -124,22 +129,56 @@ export const data_of_questions = {
         {
           number: 1,
           text: "relative",
-          richtich: false,
+          correct: false,
         },
         {
           number: 2,
           text: "fixed",
-          richtich: false,
+          correct: false,
         },
         {
           number: 3,
           text: "absolute",
-          richtich: false,
+          correct: false,
         },
         {
           number: 4,
           text: "static",
-          richtich: true,
+          correct: true,
+        },
+      ],
+    },
+    {
+      id: 5,
+      question: {
+        text: "Was ist HTML?",
+        points_for_right_answer: 25,
+      },
+      answers: [
+        {
+          number: 1,
+          text: "HTML",
+          correct: false,
+        },
+        {
+          number: 2,
+          text: "Hyper Tanzen mit eine Lamp",
+          correct: false,
+        },
+        {
+          number: 3,
+          text: "Hyper Text Markup Language",
+          correct: true,
+        },
+        {
+          number: 4,
+          text: "Higher Tone Muted Lighter",
+          correct: false,
+        },
+        {
+          number: 5,
+          text: "Horisontal Text Must Lost",
+          correct: false,
         },
       ],
     },
