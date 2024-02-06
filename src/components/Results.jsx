@@ -1,6 +1,6 @@
 import styles from "./Results.module.css";
 
-export function Results(props) {
+export function Results({ user, pull_of_questions }) {
   return (
     <>
       <div className={styles.root}>
