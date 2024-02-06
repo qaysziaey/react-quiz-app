@@ -68,7 +68,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
 
     setTotalScore(temp_total_Score);
 
-    console.log(temp_total_Score)
+    console.log(temp_total_Score);
 
     onStartWithUser({
       username,
@@ -125,62 +125,65 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
   // console.log(temp_user_answers)
 
   return (
-    <>
-      <div className={styles["questions-container"]}>
-        <h1>QUIZ QUESTIONS</h1>
-        <h2 className={styles["rounds-counter"]}>
-          {currentQuestion.id}/{data_of_questions.questions.length}
-        </h2>
-        <div className={styles["questions"]}>
-          <h2>{currentQuestion.question.text}</h2>
-          <form>
-            {temp_answers.map((answer, key) => (
-              <label key={answer.number} className={styles["answer"]}>
-                <input
-                  name="forQuestion"
-                  type="radio"
-                  value={key}
-                  checked={
-                    temp_checkBoxState[currentQuestionIndex] == key
-                      ? true
-                      : false
-                  }
-                  /*defaultChecked={temp_user_answers[currentQuestionIndex]>=0?true:false}*/
-                  onChange={(event) => {
-                    onCheckAnswer(event.target.value);
-                  }}
-                  // Add onChange handler if you need to handle user selections
-                />
-                {answer.text}
-              </label>
-            ))}
-          </form>
-        </div>
-        <div className={styles["buttons-contanier"]}>
-          <button
-            className="button"
-            onClick={() => {
-              if (currentQuestionIndex <= 0) {
-                onChangePage(1);
-              } else {
-                hanlePreviousQuestion();
-              }
-            }}
-          >
-            {currentQuestionIndex <= 0 ? "Main" : "Back"}
-          </button>
-          <button
-            className="button"
-            onClick={() => {
-              handleNextQuestion();
-            }}
-          >
-            {currentQuestionIndex >= data_of_questions.questions.length - 1
-              ? "Finish"
-              : "Next"}
-          </button>
-        </div>
+    <div className={styles["questions-container"]}>
+      <h1>QUIZ QUESTIONS</h1>
+      <h2 className={styles["rounds-counter"]}>
+        {currentQuestion.id}/{data_of_questions.questions.length}
+      </h2>
+      <div className={styles["questions"]}>
+        <h2>{currentQuestion.question.text}</h2>
+        <form>
+          {temp_answers.map((answer, key) => (
+            <label key={answer.number} className={styles["answer"]}>
+              <input
+                name="forQuestion"
+                type="radio"
+                value={key}
+                checked={
+                  temp_checkBoxState[currentQuestionIndex] == key ? true : false
+                }
+                disabled={temp_user_answers[currentQuestionIndex] !== -1} // Disable if an answer is already selected
+                onChange={(event) => {
+                  onCheckAnswer(event.target.value);
+                }}
+              />
+              {answer.text}
+            </label>
+          ))}
+        </form>
+        {/* Display feedback is hereeeeeeeee*/}
+        {temp_user_answers[currentQuestionIndex] !== -1 && (
+          <p className={styles["feedback"]}>
+            {temp_user_answers[currentQuestionIndex] > 0
+              ? "Correct Bravooooooooo💃🏻!"
+              : "Incorrect!!! 🤬"}
+          </p>
+        )}
       </div>
-    </>
+      <div className={styles["buttons-contanier"]}>
+        <button
+          className="button"
+          onClick={() => {
+            if (currentQuestionIndex <= 0) {
+              onChangePage(1);
+            } else {
+              hanlePreviousQuestion();
+            }
+          }}
+        >
+          {currentQuestionIndex <= 0 ? "Main" : "Back"}
+        </button>
+        <button
+          className="button"
+          onClick={() => {
+            handleNextQuestion();
+          }}
+        >
+          {currentQuestionIndex >= data_of_questions.questions.length - 1
+            ? "Finish"
+            : "Next"}
+        </button>
+      </div>
+    </div>
   );
 }
