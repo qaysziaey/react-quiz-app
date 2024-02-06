@@ -20,6 +20,10 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     return <option value={value}>{value}</option>;
     //}
   });
+       */
+    return <option value={value}>{value}</option>;
+    //}
+  });
 
   //console.log(avatar + ' ' + username);
 

@@ -1,94 +1,58 @@
+:root {
+  --blue: var(--button-background-color);
+  --soft-blue: var(--button-gradient-end);
+}
+
 .werbung-container {
-  /* border: 2px solid var(--soft-blue); */
   border-radius: 18px;
-  background-color: var(--baby-blue);
   display: flex;
   flex-direction: column;
   gap: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.werbung-container p {
+  color: var(--blue);
+  font-size: 24px;
+}
+
+.werbung-container h2 {
+  color: white;
+  margin: 0;
+  font-size: 84px;
+  font-weight: 800;
+  text-shadow: 0 5px 0 var(--soft-blue), 0 -5px 0 var(--soft-blue);
+}
+
+.werbung-container img {
+  width: 300px;
+  border-radius: 12px;
+}
+
+.button {
+  border: 2px solid rgba(193, 223, 255, 1);
+  padding: 12px 15px;
+  min-width: 120px;
+  border-radius: 50px;
+  font-size: 1em;
+  outline: 6px solid #fdbb2d;
   background: rgb(255, 255, 255);
   background: linear-gradient(
-    0deg,
-    rgba(255, 242, 35, 1) 0%,
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
     rgb(166, 193, 221) 100%
   );
-  padding: 10px;
-  outline: 5px solid #fdbb2d;
-  position: relative;
-  &::after {
-    content: "AD";
-    position: absolute;
-    font-size: 28px;
-    left:0;
-    bottom: -60px;
-    color: var(--blue);
-    /* border: 1px solid red; */
-    padding: 20px 5px 5px 5px;
-    width: 300px;
-    font-weight: 700;
+  color: #064f9d;
+  transition: all 0.1s ease-in-out;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 
-    border-bottom-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    z-index: -1;
-    background: rgb(255, 242, 35);
-    background: linear-gradient(
-      0deg,
-      rgba(255, 242, 35, 1) 0%,
-      rgba(253, 187, 45, 1) 100%
-    );
+  &:hover {
+    background-color: #043365;
+    outline: 3px solid #064f9d;
   }
-
-  p {
-    color: var(--blue);
-    font-size: 24px;
-  }
-  h2 {
-    color: white;
-    margin: 40px 10px 80px 10px;
-    font-size: 84px;
-    font-weight: 800;
-    text-shadow: 0 5px 0 var(--soft-blue), 0 -5px 0 var(--soft-blue);
-  }
-}
-
-.stars {
-  /* border: 2px solid red; */
-  display: flex;
-  justify-content: center;
-  /* padding: 20px; */
-  gap: 0;
-  position: relative;
-}
-.stars span {
-  text-shadow: 0 0 20px #ffffff;
-}
-.stars span:nth-child(even) {
-  justify-self: flex-start;
-  /* border: 2px solid green; */
-  font-size: 60px;
-  margin: 0;
-}
-.stars span:nth-child(odd) {
-  justify-self: flex-start;
-  /* border: 2px solid red; */
-  font-size: 45px;
-}
-.stars span:nth-child(3) {
-  justify-self: flex-start;
-  /* border: 2px solid green; */
-  font-size: 68px;
-  margin: 0;
-  padding: 0;
-}
-.money-emoji {
-  font-size: 140px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 230px;
-}
-
-.Adbutton{
-    position: relative;
-    z-index: 10;
 }

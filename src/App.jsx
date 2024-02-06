@@ -47,50 +47,47 @@ function App() {
   //console.log(selected_page)
 
   return (
-    <>
-      <div className="All_app">
-        {selected_page != 1 ? (
-          <button
-            className="close_button"
-            onClick={(event) => {
-              let ask = 1; //confirm('GO TO MAIN?')
-              if (ask) {
-                setSelected_Page(1);
-              } else {
-              }
-            }}
-          ></button>
-        ) : (
-          ""
-        )}
-        {selected_page == 5 ? (
-          <Learn_more />
-        ) : selected_page == 2 ? (
-          <Question
-            user={user}
-            users={users}
-            onChangePage={changePage}
-            onStartWithUser={startWithUser}
-          />
-        ) : selected_page == 4 ? (
-          <Results
-            user={user}
-            users={users}
-            onChangePage={changePage}
-            onStartWithUser={startWithUser}
-          />
-        ) : selected_page == 3 ? (
-          <Werbung user={user} onChangePage={changePage} />
-        ) : (
-          <Main_page
-            user={user}
-            onChangePage={changePage}
-            onStartWithUser={startWithUser}
-          />
-        )}
-        <div></div>
-      </div>
-    </>
+    <div className="app-main-container">
+      {selected_page !== 1 && (
+        <button
+          className="close-btn"
+          onClick={(event) => {
+            let ask = 1; //confirm('GO TO MAIN?')
+            if (ask) {
+              setSelected_Page(1);
+            }
+          }}
+        >
+          <span>&#10005;</span>
+        </button>
+      )}
+
+      {selected_page === 5 ? (
+        <Learn_more />
+      ) : selected_page === 2 ? (
+        <Question
+          user={user}
+          users={users}
+          onChangePage={changePage}
+          onStartWithUser={startWithUser}
+        />
+      ) : selected_page === 4 ? (
+        <Results
+          user={user}
+          users={users}
+          onChangePage={changePage}
+          onStartWithUser={startWithUser}
+        />
+      ) : selected_page === 3 ? (
+        <Werbung user={user} onChangePage={changePage} />
+      ) : (
+        <Main_page
+          user={user}
+          onChangePage={changePage}
+          onStartWithUser={startWithUser}
+        />
+      )}
+    </div>
   );
 }
 
