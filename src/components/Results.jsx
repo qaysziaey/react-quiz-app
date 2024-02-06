@@ -29,7 +29,7 @@ export function Results({
 
   return (
     <>
-      <div className={styles.root}>
+      <div className={styles["results-main-container"]}>
         <h1
           className={`${styles.score} ${
             totalScore >= 80

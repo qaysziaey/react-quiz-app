@@ -107,16 +107,6 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
     onChangePage(3);
 
     return false;
-    // All questions have been answered
-    /*
-        return (
-        <div className={styles["questions-container"]}>
-            <h1>Quiz Completed</h1>
-            <button className="button">To Page Results</button>
-            // Display quiz results or any other completion message
-        </div>
-        );
-     */
   }
 
   let temp_answers = currentQuestion.answers;
@@ -126,7 +116,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
   return (
     <>
       <div className={styles["questions-container"]}>
-        <h1>QUIZ QUESTIONS</h1>
+        <h1>Questions</h1>
         <h2 className={styles["rounds-counter"]}>
           {currentQuestion.id}/{data_of_questions.questions.length}
         </h2>
