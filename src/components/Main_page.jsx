@@ -32,8 +32,8 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
         <>
         <h1>QUUUUIZZZ</h1>
         <h2>Your IQ under attack</h2>
-        <div class="main_page_block">
-            <form id="user_data" onSubmit={(event) => {
+        <div className={styles.main_page_block}>
+            <form onSubmit={(event) => {
                     event.preventDefault()   
                     if(username && avatar){
                         // console.log(avatar + ' ' + username);
@@ -80,11 +80,11 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
                     />
                     </label>
                 </div>
-                <button class="button" type="submit">START</button>
+                <button className="button" type="submit">START</button>
             </form>
 
             <button
-                class="button" 
+                className="button" 
                 onClick={() => {
                     onChangePage(4);
                 }}

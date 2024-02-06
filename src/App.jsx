@@ -52,8 +52,8 @@ function App() {
 
   return (
     <>
-      <div class="All_app">
-        {selected_page != 1 ? <button class="close_button" onClick={(event) => {
+      <div className="All_app">
+        {selected_page != 1 ? <button className="close_button" onClick={(event) => {
                             let ask = 1//confirm('GO TO MAIN?')
                             if(ask){
                               setSelected_Page(1)
