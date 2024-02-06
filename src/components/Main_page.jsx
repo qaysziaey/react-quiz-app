@@ -2,29 +2,29 @@ import { useState } from "react";
 import styles from "./Main_page.module.css";
 
 export function Main_page({ user, onChangePage, onStartWithUser }) {
-    const avatars_array = [
-        {avatar:"",text:""},
-        {
-            avatar:"😛",
-            text:"Today a good day",
-        },
-        {
-            avatar:"🤪",
-            text:"Ready to get funny",
-        },
-        {
-            avatar:"🥶",
-            text:"Don't touch me",
-        },
-        {
-            avatar:"🥵",
-            text:"It is hard task",
-        },
-        {
-            avatar:"😤",
-            text:"I ma ready for that",
-        }
-    ];
+  const avatars_array = [
+    { avatar: "", text: "" },
+    {
+      avatar: "😛",
+      text: "Today a good day",
+    },
+    {
+      avatar: "🤪",
+      text: "Ready to get funny",
+    },
+    {
+      avatar: "🥶",
+      text: "Don't touch me",
+    },
+    {
+      avatar: "🥵",
+      text: "It is hard task",
+    },
+    {
+      avatar: "😤",
+      text: "I ma ready for that",
+    },
+  ];
 
   const [avatar, setAvatar] = useState(user.avatar ? user.avatar : "");
   const [username, setUsername] = useState(user.username ? user.username : "");
@@ -39,7 +39,11 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
             return (<option selected="selected" value={value}>{value}</option>);
         }else{
        */
-    return <option value={value.avatar}>{value.avatar} {value.text}</option>;
+    return (
+      <option key={value.avatar} value={value.avatar}>
+        {value.avatar} {value.text}
+      </option>
+    );
     //}
   });
 
