@@ -83,7 +83,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
         <button
           className="button"
           onClick={() => {
-            onChangePage(4);
+            onChangePage(5);
           }}
         >
           Learn more

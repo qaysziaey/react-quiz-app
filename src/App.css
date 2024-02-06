@@ -47,8 +47,9 @@ button {
   backdrop-filter: blur(19px);
   border: 2px solid rgba(255, 255, 255, 0.175);
   outline: 5px solid rgba(0, 0, 0, 0.159);
+  padding-bottom: 20px;
 
-  span {
+  .close-btn span {
     content: "\2715";
     text-decoration: none;
     color: rgba(255, 255, 255, 0.737);
@@ -75,5 +76,7 @@ button {
     background-color: none;
     border: none;
     background: transparent;
+    cursor:pointer;
   }
+
 }

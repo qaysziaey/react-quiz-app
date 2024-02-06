@@ -21,6 +21,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
   let temp_checkBoxState = [];
   let username = user.username;
   let avatar = user.avatar;
+  let temp_total_Score = 0;
 
   // console.log(currentQuestionIndex)
 
@@ -58,7 +59,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
     setAnswers(temp_user_answers);
     setCheckBoxState(temp_checkBoxState);
 
-    let temp_total_Score = 0;
+    temp_total_Score = 0;
     temp_user_answers.forEach((value, index) => {
       if (value >= 0) {
         temp_total_Score += value;
@@ -67,13 +68,13 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
 
     setTotalScore(temp_total_Score);
 
-    // console.log(temp_user_answers)
+    console.log(temp_total_Score)
 
     onStartWithUser({
       username,
       avatar,
-      answers,
-      totalScore,
+      answers: temp_user_answers,
+      totalScore: temp_total_Score,
     });
 
     //setCurrentQuestionIndex((prevIndex) => prevIndex - 1);

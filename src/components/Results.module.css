@@ -1,21 +1,26 @@
 .root {
   font-family: "Arial", sans-serif;
-  background-color: #a2cffe;
+  
   text-align: center;
   padding: 20px;
   border-radius: 23px;
   width: 300px;
-  height: 500px;
+  height: auto;
   margin-left: 10px;
 }
 
 .root:hover {
-  background-color: #7bbfea;
+  
 }
 
 .score {
   font-size: 1.4rem;
   font-family: "Comic Sans MS", cursive;
+  padding: 0;
+}
+
+p.avatar{
+  font-size: 50px;
 }
 
 .heightScore {
@@ -38,7 +43,7 @@
 
 .funText {
   font-family: "Comic Sans MS", cursive;
-  color: #ff69b4;
+  color: #900000;
   font-size: 24px;
   text-align: center;
   margin-top: 20px;
@@ -83,11 +88,13 @@
 }
 
 .monkey {
-  width: 100px;
+  
   height: 100px;
-  background-color: brown;
+  color:#e6592a;
   position: relative;
   animation: monkeyDance 2s infinite;
+  font-size: 60px;
+  margin:0;
 }
 
 .message {
@@ -173,4 +180,63 @@
   justify-content: center;
   background-color: #a2cffe;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.messageContainer{
+  text-shadow: 1px 1px -1px rgba(0,0,0,0.3);
+  margin:0 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.messageContainer::after{
+  content: '';
+  top:0;
+  left:0;
+  position:absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  opacity: 0.4;
+  border-radius: 10px;
+}
+
+.messageContainer h2{
+  font-size:16px;
+  position: relative;
+  z-index: 2;
+}
+
+.table_of_results{
+  width:96%;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top:20px;
+}
+
+.table_person{
+  display:flex;
+  justify-content:space-around;
+  border-bottom:1px solid #ccc;
+  width:100%;
+  margin-top: 10px;
+}
+
+.table_person.thisUser{
+  background:#aaa;
+  border-bottom:1px solid #bbb;
+}
+
+.personAvatar{
+  width:40px;
+  text-align: left;
+}
+.personUsername{
+  width:300px;
+  text-align: left;
+}
+
+.personResult{
+  width:40px;
 }

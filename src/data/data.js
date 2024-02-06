@@ -31,7 +31,7 @@ export const data_of_questions = {
       id: 1,
       question: {
         text: "Wie selektiert man ein Element mit id=demo?",
-        points_for_right_answer: 10,
+        points_for_right_answer: 25,
       },
       answers: [
         {
@@ -60,7 +60,7 @@ export const data_of_questions = {
       id: 2,
       question: {
         text: "Wofür steht CSS?",
-        points_for_right_answer: 15,
+        points_for_right_answer: 25,
       },
       answers: [
         {
@@ -89,7 +89,7 @@ export const data_of_questions = {
       id: 3,
       question: {
         text: "Welche CSS Syntax ist korrekt?",
-        points_for_right_answer: 15,
+        points_for_right_answer: 25,
       },
       answers: [
         {
@@ -118,7 +118,7 @@ export const data_of_questions = {
       id: 4,
       question: {
         text: "Was ist der Defaultwert für position?",
-        points_for_right_answer: 15,
+        points_for_right_answer: 25,
       },
       answers: [
         {
