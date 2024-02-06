@@ -61,29 +61,28 @@
     background-color: none;
     border: none;
     background: transparent;
-    cursor:pointer;
+    cursor: pointer;
   }
-
 }
 
-.closeProfileLine{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
+.closeProfileLine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 100;
 }
 
- .closeProfileLine .avatarProfile{
-    position: absolute;
-    top: 7px;
-    left: 14px;
-    z-index: 1;
-    font-size: 30px;
-  }
+.closeProfileLine .avatarProfile {
+  position: absolute;
+  top: 7px;
+  left: 14px;
+  z-index: 1;
+  font-size: 30px;
+}
 
-  .closeProfileLine .avatarProfile span{
-    font-size: 12px;
-    position: relative;
-    top:-9px;
-  }
+.closeProfileLine .avatarProfile span {
+  font-size: 12px;
+  position: relative;
+  top: -9px;
+}

@@ -33,17 +33,8 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
 
   return (
     <>
-<<<<<<< HEAD
       <div className={styles["results-main-container"]}>
         <h1
-=======
-      <div className={styles.root}>
-        <h1>
-          Dier <span>{user.username}</span> ({user.avatar})
-          <div>Your results:</div>
-        </h1>
-        <h2
->>>>>>> origin/main
           className={`${styles.score} ${
             user.result >= 80
               ? styles.heightScore
@@ -53,7 +44,7 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
           } ${user.result >= 80 ? styles.monkey : ""}`}
         >
           {user.result > 0 ? user.result : "No answers provided"}
-        </h2>
+        </h1>
         <div>{resultPriseText}</div>
         <span className={styles.notice}>(Maximum {Max_points})</span>
       </div>
