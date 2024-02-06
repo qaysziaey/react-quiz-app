@@ -20,10 +20,6 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     return <option value={value}>{value}</option>;
     //}
   });
-       */
-    return <option value={value}>{value}</option>;
-    //}
-  });
 
   //console.log(avatar + ' ' + username);
 
@@ -31,7 +27,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     <>
       <h1>QUUUUIZZZ</h1>
       <h2>Your IQ under attack</h2>
-      <div className={styles.main_page_block}>
+      <div className={styles["main-page-container"]}>
         <form
           onSubmit={(event) => {
             event.preventDefault();
