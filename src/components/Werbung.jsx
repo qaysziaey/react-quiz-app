@@ -1,15 +1,23 @@
 import styles from "./Werbung.module.css";
+import { werbungList } from "../data/werbung.js";
 
-export function Werbung({ user, onChangePage }) {
+const randomNumberInRange = (min, max) => {
+    return Math.floor(Math.random()
+        * (max - min + 1)) + min;
+};
+
+export function Werbung({ onChangePage }) {
+    const werbungArrTake = randomNumberInRange(0, werbungList.length-1);
+    console.log(werbungArrTake)
   return (
     <>
       <div className={styles["werbung-container"]}>
         {/* <h1>Werbung</h1> */}
-        <p>Invite friends & win</p>
-        <h2 className={styles["winn-prize"]}>50$</h2>
+        <p>{werbungList[werbungArrTake].text}</p>
+        <h2 className={styles["winn-prize"]}>{werbungList[werbungArrTake].price}$</h2>
 
         <img
-          src="https://images.unsplash.com/photo-1669951584304-8da02ea5a54f?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src={werbungList[werbungArrTake].image}
           alt=""
         />
         <button

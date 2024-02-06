@@ -25,6 +25,11 @@ export const data_of_questions = {
       end: 100,
       text: "You are Superman!! 🤡",
     },
+    {
+      start: 100,
+      end: 150,
+      text: "HyperChicken 🐔",
+    },
   ],
   questions: [
     {
@@ -140,6 +145,40 @@ export const data_of_questions = {
           number: 4,
           text: "static",
           richtich: true,
+        },
+      ],
+    },
+    {
+      id: 5,
+      question: {
+        text: "Was ist HTML?",
+        points_for_right_answer: 25,
+      },
+      answers: [
+        {
+          number: 1,
+          text: "HTML",
+          richtich: false,
+        },
+        {
+          number: 2,
+          text: "Hyper Tanzen mit eine Lamp",
+          richtich: false,
+        },
+        {
+          number: 3,
+          text: "Hyper Text Markup Language",
+          richtich: true,
+        },
+        {
+          number: 4,
+          text: "Higher Tone Muted Lighter",
+          richtich: false,
+        },
+        {
+          number: 5,
+          text: "Horisontal Text Must Lost",
+          richtich: false,
         },
       ],
     },

@@ -48,19 +48,22 @@ function App() {
 
   return (
     <div className="app-main-container">
-      {selected_page !== 1 && (
-        <button
-          className="close-btn"
-          onClick={(event) => {
-            let ask = 1; //confirm('GO TO MAIN?')
-            if (ask) {
-              setSelected_Page(1);
-            }
-          }}
-        >
-          <span>&#10005;</span>
-        </button>
-      )}
+      {selected_page !== 1 ? (
+        <div className="closeProfileLine">
+          <span className="avatarProfile">{user.avatar} <span>{user.username}</span></span>
+          <button
+            className="close-btn"
+            onClick={(event) => {
+              let ask = 1; //confirm('GO TO MAIN?')
+              if (ask) {
+                setSelected_Page(1);
+              }
+            }}
+          >
+            <span>&#10005;</span>
+          </button>
+        </div>
+      ):''}
 
       {selected_page === 5 ? (
         <Learn_more />
@@ -79,7 +82,7 @@ function App() {
           onStartWithUser={startWithUser}
         />
       ) : selected_page === 3 ? (
-        <Werbung user={user} onChangePage={changePage} />
+        <Werbung onChangePage={changePage} />
       ) : (
         <Main_page
           user={user}
