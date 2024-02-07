@@ -8,7 +8,7 @@ const randomNumberInRange = (min, max) => {
 
 export function Werbung({ onChangePage }) {
     const werbungArrTake = randomNumberInRange(0, werbungList.length-1);
-    console.log(werbungArrTake)
+  //  console.log(werbungArrTake)
   return (
     <>
       <div className={styles["werbung-container"]}>

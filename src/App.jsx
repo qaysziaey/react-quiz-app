@@ -12,6 +12,7 @@ function App() {
   const [selected_page, setSelected_Page] = useState(1);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+  
   //  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
 
   //id of questuions
@@ -29,9 +30,42 @@ function App() {
     }
   ]
 */
+  function addToReusltLists(){
+
+    let new_user = true;
+    let temp_users = users;
+
+    //console.log(user)
+
+    temp_users.forEach((value, index) => {
+      if (value.username == user.username && value.avatar == user.avatar) {
+        temp_users[index].answers = user.answers;
+        temp_users[index].result = user.result;
+        new_user = false;
+        return false;
+      }
+    });
+
+    if (new_user) {
+      temp_users.push({
+        username: user.username,
+        avatar: user.avatar,
+        answers: user.answers,
+        result: user.result,
+      });
+    }
+  //  console.log(temp_users);
+    setUsers(temp_users);
+
+  }
 
   function changePage(value) {
+    
     setSelected_Page(value);
+    if(value===3){
+      addToReusltLists()
+    }
+
   }
 
   function startWithUser(props) {
@@ -74,7 +108,6 @@ function App() {
       ) : selected_page === 2 ? (
         <Question
           user={user}
-          users={users}
           onChangePage={changePage}
           onStartWithUser={startWithUser}
         />

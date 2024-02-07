@@ -16,13 +16,13 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
 
   const [message, setMessage] = useState({ text: "", color: "" });
 
-  console.log(user);
+//  console.log(user);
 
   useEffect(() => {
     if (user.result && Max_points > 0) {
       const percentage = (user.result / Max_points) * 100;
-      console.log(percentage, user.result, Max_points);
-      console.log(message);
+ //     console.log(percentage, user.result, Max_points);
+ //     console.log(message);
       const resultAnimation = animationForResult(percentage);
 
       setMessage(resultAnimation);
@@ -34,26 +34,31 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
   return (
     <>
       <div className={styles["results-main-container"]}>
-        <h1
-          className={`${styles.score} ${
-            user.result >= 80
-              ? styles.heightScore
-              : user.result >= 50
-              ? styles.mediumScore
-              : styles.lowScore
-          } ${user.result >= 80 ? styles.monkey : ""}`}
-        >
-          {user.result > 0 ? user.result : "No answers provided"}
-        </h1>
-        <div>{resultPriseText}</div>
-        <span className={styles.notice}>(Maximum {Max_points})</span>
-      </div>
-      <div
-        className={`${styles.messageContainer} ${
-          message.color && styles[message.color]
-        }`}
-        style={{ opacity: 0.8, color: message.color }}
+      <h1>
+    Dier <span>{user.username}</span> ({user.avatar})
+    <div>Your results:</div>
+      </h1>
+      <h2
+    
+        className={`${styles.score} ${
+          user.result >= 80
+            ? styles.heightScore
+            : user.result >= 50
+            ? styles.mediumScore
+            : styles.lowScore
+        } ${user.result >= 80 ? styles.monkey : ""}`}
       >
+        {user.result > 0 ? user.result : "No answers provided"}
+      </h2>
+      <div>{resultPriseText}</div>
+      <span className={styles.notice}>(Maximum {Max_points})</span>
+          </div>
+          <div
+            className={`${styles.messageContainer} ${
+              message.color && styles[message.color]
+            }`}
+            style={{ opacity: 0.8, color: message.color }}
+          >
         <h2>{message.text}</h2>
       </div>
       <div className={styles.table_of_results}>

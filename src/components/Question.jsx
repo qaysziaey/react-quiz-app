@@ -2,7 +2,7 @@ import styles from "./Question.module.css";
 import { data_of_questions } from "../data/data.js";
 import { useState } from "react";
 
-export function Question({ user, users, onChangePage, onStartWithUser }) {
+export function Question({ user, onChangePage, onStartWithUser }) {
   //   console.log(user)
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -56,36 +56,25 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
       answers,
       totalScore,
     });
+
   };
 
   const currentQuestion = data_of_questions.questions[currentQuestionIndex];
 
   if (currentQuestionIndex > data_of_questions.questions.length - 1) {
     // TODO: in diese Platz machen users-add
-
-    let new_user = true;
-
-    users.forEach((value, index) => {
-      if (value.username == username && value.avatar == avatar) {
-        users[index].answers = answers;
-        users[index].result = totalScore;
-        new_user = false;
-        return false;
-      }
-    });
-
-    if (new_user) {
-      users.push({
-        username: username,
-        avatar: avatar,
-        answers: answers,
-        result: totalScore,
-      });
-    }
-
+/*
+    onStartWithUser({
+      username,
+      avatar,
+      answers,
+      totalScore,
+    });    
+*/
     onChangePage(3);
 
     return false;
+
   }
 
   let temp_answers = currentQuestion.answers;

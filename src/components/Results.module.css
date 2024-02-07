@@ -1,7 +1,9 @@
 .results-main-container {
-  border: 2px solid red;
+ /* border: 2px solid red;
   display: flex;
   flex-direction: column;
+  */
+  margin-bottom: 30px;
 }
 
 .score {
@@ -38,6 +40,7 @@ p.avatar {
   font-size: 24px;
   text-align: center;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .funnyAnimation {
