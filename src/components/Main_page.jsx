@@ -1,28 +1,44 @@
 import { useState } from "react";
 import styles from "./Main_page.module.css";
+import { languageList } from "../data/language.js";
 
-export function Main_page({ user, onChangePage, onStartWithUser }) {
+export function Main_page({ user, onChangePage, onStartWithUser, language }) {
   const avatars_array = [
     { avatar: "", text: "" },
     {
       avatar: "😛",
-      text: "Today a good day",
+      text: {
+        EN: "Just another day of being awesome!",
+        DE: "Einfach ein weiterer Tag voller Großartigkeit!",
+      }
     },
     {
       avatar: "🤪",
-      text: "Ready to get funny",
+      text: {
+        EN: "Crazy like a fox!",
+        DE: "Verrückt wie ein Fuchs!",
+      }
     },
     {
       avatar: "🥶",
-      text: "Don't touch me",
+      text: {
+        EN: "Don't even think about touching me!",
+        DE: "Denken Sie nicht einmal daran, mich zu berühren!",
+      }
     },
     {
       avatar: "🥵",
-      text: "It is hard task",
+      text: {
+        EN: "This task is making me sweat!",
+        DE: "Diese Aufgabe bringt mich ins Schwitzen!",
+      }
     },
     {
       avatar: "😤",
-      text: "I ma ready for that",
+      text: {
+        EN: "I'm pumped up and ready to conquer!",
+        DE: "Ich bin aufgepumpt und bereit für den Sieg!",
+      }
     },
   ];
 
@@ -41,7 +57,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
        */
     return (
       <option key={value.avatar} value={value.avatar}>
-        {value.avatar} {value.text}
+        {value.avatar} {value.text[language]}
       </option>
     );
     //}
@@ -52,7 +68,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
   return (
     <>
       <h1>QUUUUIZZZ</h1>
-      <h2>Your IQ under attack</h2>
+      <h2>{languageList[language].MainPage.Title} 🤯</h2>
       <div className={styles["main-page-container"]}>
         <form
           onSubmit={(event) => {
@@ -68,7 +84,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
               });
             } else {
               // console.log(avatar + ' ' + username);
-              alert("Enter Your name and choose Avatar");
+              alert(languageList[language].MainPage.alert_login);
             }
           }}
         >
@@ -89,7 +105,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
           </div>
           <div>
             <label htmlFor="user_name">
-              Your Name
+              {languageList[language].MainPage.label_name}
               <input
                 type="text"
                 value={username}
@@ -102,7 +118,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
             </label>
           </div>
           <button className="button" type="submit">
-            START
+            {languageList[language].MainPage.btn_start}
           </button>
         </form>
 
@@ -112,7 +128,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
             onChangePage(5);
           }}
         >
-          Learn more
+          {languageList[language].MainPage.btn_learn_more}
         </button>
       </div>
     </>

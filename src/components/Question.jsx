@@ -11,6 +11,14 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
 
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+    
+
+    if (checkBoxState[currentQuestionIndex] == undefined) {
+      let temp_checkbox = checkBoxState;
+      temp_checkbox.push(-1)
+      setCheckBoxState(temp_checkbox)
+    }
+
     setFeedback(""); // Reset feedback for the next question
   };
 
@@ -23,27 +31,22 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
   const { username, avatar } = user;
 
   const answers = data_of_questions.questions.map((question, index) => {
-    if (checkBoxState[index] === undefined) {
+
+    if (checkBoxState[index] == undefined) {
       return -1;
     }
-    if (question.answers[checkBoxState[index]].correct) {
+
+    if (question.answers[checkBoxState[index]]!==undefined && question.answers[checkBoxState[index]].correct) {
       return question.question.points_for_right_answer;
     } else {
       return 0;
     }
+
   });
-
-  const totalScore = answers.reduce((acc, cur) => {
-    return acc + (cur >= 0 ? cur : 0);
-  }, 0);
-
-  
 
   const onCheckAnswer = (value) => {
 
-    let tempCheckBoxState;
-
-    if (currentQuestionIndex < checkBoxState.length) {
+    if (currentQuestionIndex < checkBoxState.length - 1) {
 
       console.log(checkBoxState.map((state, index) => {
         if (currentQuestionIndex === index) {
@@ -54,7 +57,9 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
       }));
 
     } else {
+
       setCheckBoxState([...checkBoxState, Number(value)]);
+
     }
 
     
@@ -66,12 +71,19 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
       setFeedback(languageList[language].Questions.text_incorrect);
     }
 */
+
+/*
+    const totalScore = answers.reduce((acc, cur) => {
+      return acc + (cur >= 0 ? cur : 0);
+    }, 0);
+
     onStartWithUser({
       username,
       avatar,
       answers,
       totalScore,
     });
+*/
 
   };
 
@@ -79,19 +91,25 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
 
   if (currentQuestionIndex > data_of_questions.questions.length - 1) {
     let new_user = true;
+ 
+    console.log(answers)
 
-    
+    const totalScore = answers.reduce((acc, cur) => {
+      return acc + (cur >= 0 ? cur : 0);
+    }, 0);
+
+    console.log(totalScore)
+
     onStartWithUser({
       username,
       avatar,
       answers,
       totalScore,
     });
- 
-    
+ /*
     console.log(checkBoxState)
     console.log(answers)
-
+*/
     onChangePage(3);
 
     return false;
@@ -117,7 +135,7 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
                     (
                       checkBoxState[currentQuestionIndex]==undefined?'':
                     (
-                      index==checkBoxState[currentQuestionIndex] && answer.correct? "enabled1" : "disabled1"
+                      index==checkBoxState[currentQuestionIndex] && answer.correct? "enabled_label" : "disabled_label"
                     ))
                 ] 
               }
@@ -147,13 +165,13 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
           ))}
         </form>
         {feedback && (
-          <p
+          <div
             className={
-              feedback === languageList[language].Questions.text_correct ? styles["correct"] : styles["incorrect"]
+              feedback === languageList[language].Questions.text_correct ? styles["baloon_correct"] : styles["baloon_incorrect"]
             }
           >
             {feedback}
-          </p>
+          </div>
         )}
       </div>
       <div className={styles["buttons-container"]}>

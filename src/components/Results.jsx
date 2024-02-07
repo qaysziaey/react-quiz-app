@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Results.module.css";
 import { data_of_questions } from "../data/data.js";
+import { languageList } from "../data/language.js";
 
 let Max_points =
   data_of_questions.prizes_by_points[
     data_of_questions.prizes_by_points.length - 1
   ].end;
 let resultPriseText = "";
-export function Results({ users, user, onChangePage, onStartWithUser }) {
-  data_of_questions.prizes_by_points.forEach((prize, index) => {
-    if (user.result >= prize.start && user.result <= prize.end) {
-      resultPriseText = prize.text;
-    }
-  });
 
-  const [message, setMessage] = useState({ text: "", color: "" });
+  
+  export function Results({ users, user, onChangePage, language }) {
+
+    data_of_questions.prizes_by_points.forEach((prize, index) => {
+      if (user.result >= prize.start && user.result <= prize.end) {
+        resultPriseText = prize.text[language];
+      }
+    });
+  
+    const [message, setMessage] = useState({ text: {}, color: "" });
 
 //  console.log(user);
 
@@ -35,8 +39,8 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
     <>
       <div className={styles["results-main-container"]}>
       <h1>
-    Dier <span>{user.username}</span> ({user.avatar})
-    <div>Your results:</div>
+    {languageList[language].Results.label_dier} <span>{user.username}</span> ({user.avatar})
+    <div>{languageList[language].Results.label_your_results}:</div>
       </h1>
       <h2
     
@@ -48,7 +52,7 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
             : styles.lowScore
         } ${user.result >= 80 ? styles.monkey : ""}`}
       >
-        {user.result > 0 ? user.result : "No answers provided"}
+        {user.result > 0 ? user.result : languageList[language].Results.text_no_answers}
       </h2>
       <div>{resultPriseText}</div>
       <span className={styles.notice}>(Maximum {Max_points})</span>
@@ -59,7 +63,7 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
             }`}
             style={{ opacity: 0.8, color: message.color }}
           >
-        <h2>{message.text}</h2>
+        <h2>{message.text[language]}</h2>
       </div>
       <div className={styles.table_of_results}>
         {users.map((person) => {
@@ -82,7 +86,7 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
         })}
       </div>
       <div className={`${styles.funText} ${styles.funnyAnimation}`}>
-        Having Fun with us!
+        {languageList[language].Results.text_have_fun}
       </div>
       <button
         className="button"
@@ -90,27 +94,30 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
           onChangePage(1);
         }}
       >
-        Play again
+        {languageList[language].Results.btn_play_again}
       </button>
     </>
   );
+
+  function animationForResult(percentage) {
+    if (percentage >= 80) {
+      return {
+        text: languageList[language].Results.text_80,
+        color: "green",
+      };
+    } else if (percentage >= 50) {
+      return {
+        text: languageList[language].Results.text_50,
+        color: "orange",
+      };
+    } else {
+      return {
+        text: languageList[language].Results.text_0,
+        color: "red",
+      };
+    }
+  }
+
 }
 
-function animationForResult(percentage) {
-  if (percentage >= 80) {
-    return {
-      text: "Wow, you're a quiz master! Are you sure you haven't secretly been eating a dictionary for breakfast?",
-      color: "green",
-    };
-  } else if (percentage >= 50) {
-    return {
-      text: "Well done! You're almost at the top. A little more practice, and you'll conquer the quiz crown!",
-      color: "orange",
-    };
-  } else {
-    return {
-      text: "Not bad! Remember: every master was once a beginner. On to the next try!",
-      color: "red",
-    };
-  }
-}
+

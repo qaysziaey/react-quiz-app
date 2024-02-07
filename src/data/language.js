@@ -26,6 +26,8 @@ export const languageList = {
         'Results':{
             'text_have_fun': 'Having Fun with us!',
             'btn_play_again': 'Play again',
+            'label_dier': 'Dier',
+            'label_your_results': 'Your results',
             'text_no_answers': 'No answers provided',
             'text_80':"Wow, you're a quiz master! Are you sure you haven't secretly been eating a dictionary for breakfast?",
             'text_50':"Well done! You're almost at the top. A little more practice, and you'll conquer the quiz crown!",
@@ -63,6 +65,8 @@ export const languageList = {
         'Results':{
             'text_have_fun': 'Viel Spaß mit uns!',
             'btn_play_again': 'Nochmal abspielen',
+            'label_dier': 'Liebe',
+            'label_your_results': 'Deine Ergebnisse',
             'text_no_answers': 'Keine Antworten gegeben',
             'text_80':"Wow, du bist ein Quizmeister! Bist du sicher, dass du nicht heimlich ein Wörterbuch zum Frühstück gegessen hast?",
             'text_50':"Gut gemacht! Du bist fast ganz oben. Noch ein bisschen Übung, dann eroberst du die Quiz-Krone!",
