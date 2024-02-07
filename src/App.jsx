@@ -14,7 +14,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   const [language, setLanguage] = useState("EN");
-  
+
   //  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
 
   //id of questuions
@@ -32,12 +32,11 @@ function App() {
     }
   ]
 */
-  function addToReusltLists(props){
-
+  function addToReusltLists(props) {
     let new_user = true;
     let temp_users = props.usersList;
 
-    console.log(props)
+    console.log(props);
 
     temp_users.forEach((value, index) => {
       if (value.username == props.username && value.avatar == props.avatar) {
@@ -56,34 +55,29 @@ function App() {
         result: props.result,
       });
     }
-  //  console.log(temp_users);
+    //  console.log(temp_users);
     setUsers(temp_users);
-
   }
 
   function changePage(value, new_user = {}) {
-    
     setSelected_Page(value);
-    if(value===3)
-    addToReusltLists({
-      username: new_user.username,
-      avatar: new_user.avatar,
-      answers: new_user.answers,
-      result: new_user.totalScore,
-      usersList: users
-    })
-
+    if (value === 3)
+      addToReusltLists({
+        username: new_user.username,
+        avatar: new_user.avatar,
+        answers: new_user.answers,
+        result: new_user.totalScore,
+        usersList: users,
+      });
   }
 
   function startWithUser(props) {
-    
     setUser({
       username: props.username,
       avatar: props.avatar,
       answers: props.answers,
       result: props.totalScore,
     });
-
   }
 
   function changeLanguage() {
@@ -95,23 +89,31 @@ function App() {
 
   return (
     <div className="app-main-container">
-      <button className="btn_language" onClick={changeLanguage}>{languageList[language].App.btn_change_lang}</button>
       {selected_page !== 1 ? (
         <div className="closeProfileLine">
-          <span className="avatarProfile">
-            {user.avatar} <span>{user.username}</span>
-          </span>
-          <button
-            className="close-btn"
-            onClick={(event) => {
-              let ask = 1; //confirm('GO TO MAIN?')
-              if (ask) {
-                setSelected_Page(1);
-              }
-            }}
-          >
-            <span>&#10005;</span>
-          </button>
+          <div>
+            <span className="avatarProfile">
+              {user.avatar} <span>{user.username}</span>
+            </span>
+          </div>
+          <div>
+            <button className="btn_language" onClick={changeLanguage}>
+              {languageList[language].App.btn_change_lang}
+            </button>
+          </div>
+          <div>
+            <button
+              className="close-btn"
+              onClick={(event) => {
+                let ask = 1; //confirm('GO TO MAIN?')
+                if (ask) {
+                  setSelected_Page(1);
+                }
+              }}
+            >
+              &#10005;
+            </button>
+          </div>
         </div>
       ) : (
         ""

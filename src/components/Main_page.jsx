@@ -59,11 +59,9 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
 
   return (
     <>
-      <h1>QUUUUIZZZ</h1>
-      <h2>{languageList[language].MainPage.Title} 🤯</h2>
       <div className={styles["main-page-container"]}>
         <h1>Quizy</h1>
-        <h2>Your IQ under attack</h2>
+        <h2>{languageList[language].MainPage.Title} 🤯</h2>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -82,46 +80,45 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
             }
           }}
         >
-          <div>
-            <label htmlFor="avatar">
-              Your Avatar
-              <select
-                name="avatar"
-                className={styles.avatar_select}
-                value={avatar}
-                onChange={(event) => {
-                  setAvatar(event.target.value);
-                }}
-              >
-                {avatar_print}
-              </select>
-            </label>
-            <label htmlFor="user_name">
-              {languageList[language].MainPage.label_name}
-              <input
-                type="text"
-                value={username}
-                onChange={(event) => {
-                  setUsername(event.target.value);
-                }}
-                name="user_name"
-                id="user"
-              />
-            </label>
+          <label htmlFor="avatar">
+            Your Avatar
+            <select
+              name="avatar"
+              className={styles.avatar_select}
+              value={avatar}
+              onChange={(event) => {
+                setAvatar(event.target.value);
+              }}
+            >
+              {avatar_print}
+            </select>
+          </label>
+          <label htmlFor="user_name">
+            {languageList[language].MainPage.label_name}
+            <input
+              type="text"
+              value={username}
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+              name="user_name"
+              id="user"
+            />
+          </label>
+          <div className={styles["buttons-container-main"]}>
+            <button className={styles["button"]} type="submit">
+              {languageList[language].MainPage.btn_start}
+            </button>
+            <button
+              className={styles["button"]}
+              onClick={() => {
+                onChangePage(5);
+              }}
+            >
+              {languageList[language].MainPage.btn_learn_more}
+            </button>
           </div>
-          <button className="button" type="submit">
-            {languageList[language].MainPage.btn_start}
-          </button>
         </form>
-
-        <button
-          className="button"
-          onClick={() => {
-            onChangePage(5);
-          }}
-        >
-          {languageList[language].MainPage.btn_learn_more}
-        </button>
       </div>
     </>
   );

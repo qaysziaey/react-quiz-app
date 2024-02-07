@@ -268,14 +268,14 @@ export const data_of_questions = {
           },
           correct: false,
         },
-        {
-          number: 5,
-          text: {
-            EN: "Horizontal Text Must Lost",
-            DE: "Horizontaler Text Muss Verloren Gehen",
-          },
-          correct: false,
-        },
+        // {
+        //   number: 5,
+        //   text: {
+        //     EN: "Horizontal Text Must Lost",
+        //     DE: "Horizontaler Text Muss Verloren Gehen",
+        //   },
+        //   correct: false,
+        // },
       ],
     },
   ],

@@ -1,58 +1,76 @@
-:root {
-  --blue: var(--button-background-color);
-  --soft-blue: var(--button-gradient-end);
-}
-
 .werbung-container {
   border-radius: 18px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   gap: 10px;
   padding: 10px;
-  position: relative;
 }
 
 .werbung-container p {
-  color: var(--soft-blue);
+  color: #5352ed;
   font-size: 24px;
 }
 
 .werbung-container h2 {
-  color: white;
+  color: red;
+  background: rgb(255, 255, 255);
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(201, 201, 201, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0;
   font-size: 84px;
   font-weight: 800;
-  text-shadow: 0 5px 0 var(--soft-blue), 0 -5px 0 var(--soft-blue);
+
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.257), 0 4px 0 rgba(0, 0, 0, 0.257),
+    0 6px 5px rgba(0, 0, 0, 0.257), 0 8px 10px rgba(0, 0, 0, 0.257);
 }
 
 .werbung-container img {
-  width: 300px;
+  width: 400px;
+  height: 300px;
+  min-width: 300px;
   border-radius: 12px;
+  background-size: cover;
+  border: 3px solid rgba(255, 255, 255, 0.368);
+  outline: 6px solid rgba(255, 255, 255, 0.199);
 }
 
 .button {
-  border: 2px solid rgba(193, 223, 255, 1);
-  padding: 12px 15px;
+  /* width: 120px; */
+  padding: 10px 14px;
   min-width: 120px;
   border-radius: 50px;
-  font-size: 1em;
-  outline: 6px solid #fdbb2d;
-  background: rgb(255, 255, 255);
+  font-size: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.433);
+  background: rgba(255, 255, 255, 0.345);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(0, 0, 0, 0.225);
+  border: none;
+  transition: all 0.1s ease-in-out;
+  color: rgba(0, 0, 0, 0.577);
+  cursor: pointer;
+}
+.button:hover {
+  color: #2f3542;
+  background: white;
+  -webkit-backdrop-filter: blur(19px);
+  backdrop-filter: blur(19px);
+  border: none;
+  text-shadow: none;
+  color: black;
+  background: rgb(240, 255, 35);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 1) 0%,
-    rgb(166, 193, 221) 100%
+    rgb(207, 219, 30) 0%,
+    rgba(154, 230, 36, 1) 100%
   );
-  color: #064f9d;
-  transition: all 0.1s ease-in-out;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  cursor: pointer;
-
-  &:hover {
-    background-color: #043365;
-    outline: 3px solid #064f9d;
-  }
+  transition: filter 200ms;
+  filter: drop-shadow(0 0 1em rgba(238, 255, 0, 0.868));
 }

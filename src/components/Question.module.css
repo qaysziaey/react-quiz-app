@@ -3,12 +3,13 @@
 .questions-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  gap: 5px;
+  gap: 20px;
   border-radius: 18px;
   height: inherit;
-  padding: 20px;
+  padding: 30px;
+  width: 100%;
 }
 
 .questions-container h2 {
@@ -25,13 +26,10 @@
   justify-content: center;
   text-align: left;
   border-radius: 20px;
-  gap: 10px;
+  gap: 20px;
   z-index: 1;
-  padding: 10px;
-  outline: 12px solid rgba(255, 255, 255, 0.152);
-  background-color: rgba(255, 255, 255, 0.152);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.367);
-  border: 8px solid rgba(255, 255, 255, 0.152);
+  padding: 20px;
+  width: inherit;
 }
 
 .questions-container .questions form {
@@ -39,7 +37,12 @@
   border-radius: 16px;
   flex-direction: column;
   gap: 10px;
-  width: 400px;
+  padding: 20px 40px;
+}
+.questions-container .questions form h2 {
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  color: #5352ed;
 }
 
 .questions-container .questions form input[type="radio"] {
@@ -52,20 +55,24 @@
 .questions-container .questions form label {
   display: flex;
   align-items: center;
+  flex-direction: row;
+  text-align: left;
   border: none;
+  justify-content: flex-start;
   padding: 12px 10px;
   border-radius: 10px;
   gap: 10px;
   font-size: 16px;
-  color: rgba(0, 0, 0, 0.577);
+  color: rgba(0, 0, 0, 0.881);
   transition: all 300ms;
-  border: 1px solid rgba(0, 0, 0, 0.064);
-  box-shadow: 0 1px rgba(0, 0, 0, 0.367);
+  background-color: rgba(255, 255, 255, 0.47);
+  border: 1px solid rgba(255, 255, 255, 0.47);
 }
 
 .questions-container .questions form label:hover {
-  background-color: rgba(255, 255, 255, 0.47);
+  background-color: rgba(255, 255, 255, 0.346);
   color: black;
+  border: 1px solid rgba(255, 255, 255, 0.47);
 }
 
 .questions-container .questions form label input[type="text"] {
@@ -89,23 +96,65 @@
 .questions-container .buttons-container {
   display: flex;
   gap: 10px;
-  border: 2px solid green;
+
   width: inherit;
   justify-content: space-around;
-  padding: 30px 0 20px 0;
-  width: inherit;
+  padding: 10px;
+}
+.questions-container .buttons-container .button {
+  width: 120px;
+  padding: 10px 14px;
+  min-width: 120px;
+  border-radius: 50px;
+  font-size: 14px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.433);
+  background: rgba(255, 255, 255, 0.345);
+  -webkit-backdrop-filter: blur(50px);
+  backdrop-filter: blur(50px);
+  border: 1px solid rgba(0, 0, 0, 0.225);
+  border: none;
+  transition: all 0.1s ease-in-out;
+  color: rgba(0, 0, 0, 0.577);
+  cursor: pointer;
+}
+.questions-container .buttons-container .button:hover {
+  color: #2f3542;
+  background: white;
+  -webkit-backdrop-filter: blur(19px);
+  backdrop-filter: blur(19px);
+  border: none;
+  text-shadow: none;
+  color: black;
+  background: rgb(240, 255, 35);
+  background: linear-gradient(
+    180deg,
+    rgb(207, 219, 30) 0%,
+    rgba(154, 230, 36, 1) 100%
+  );
+  transition: filter 200ms;
+  filter: drop-shadow(0 0 1em rgba(238, 255, 0, 0.868));
+}
+
+.questions-container .questions form label.enabled_label {
+  color: rgb(3, 43, 3);
+  background-color: #2ed573;
+  accent-color: rgb(9, 164, 9);
+  border: 1px solie #2ed573;
+}
+.questions-container .questions form label.disabled_label {
+  accent-color: red;
+  color: rgba(0, 0, 0, 0.472);
+  background-color: rgba(255, 255, 255, 0.47);
+  border: 1px solid rgba(255, 255, 255, 0.47);
 }
 
 .rounds-counter {
   border-radius: 50px;
-  width: 120px;
+  /* width: 120px; */
   padding: 10px;
   font-weight: 400;
   color: white;
-  background: rgba(255, 255, 255, 0.1);
-  -webkit-backdrop-filter: blur(19px);
-  backdrop-filter: blur(19px);
-  border: 1px solid rgba(0, 0, 0, 0.225);
+  letter-spacing: 10px;
 }
 .feedback {
   font-family: "Comic Sans MS", cursive;
@@ -152,25 +201,26 @@
 }
 
 .baloon_correct {
-  color: green;
+  color: white;
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 6px 12px;
+  background-color: rgba(0, 0, 0, 0.098);
+  border-radius: 50px;
   position: absolute;
-  right: 2px;
-  top: 60px;
-  background: #fff;
-  padding: 10px;
-  border-radius: 20px;
-  opacity: 1.7;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  top: 0;
+  right: 50px;
 }
 
 .baloon_incorrect {
   color: red;
+  color: white;
+  font-size: 14px;
+  border-radius: 50px;
+  padding: 6px 12px;
+  background-color: rgba(0, 0, 0, 0.098);
+  border-radius: 50px;
   position: absolute;
-  right: 2px;
-  top: 60px;
-  background: #fff;
-  padding: 10px;
-  border-radius: 20px;
-  opacity: 1.7;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  top: 200px;
+  right: 50px;
 }
