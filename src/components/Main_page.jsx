@@ -22,7 +22,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     },
     {
       avatar: "😤",
-      text: "I ma ready for that",
+      text: "I'm ready for that",
     },
   ];
 
@@ -34,26 +34,18 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
   );
 
   const avatar_print = avatars_array.map((value) => {
-    /*
-        if (index == 0) {
-            return (<option selected="selected" value={value}>{value}</option>);
-        }else{
-       */
     return (
       <option key={value.avatar} value={value.avatar}>
         {value.avatar} {value.text}
       </option>
     );
-    //}
   });
-
-  //console.log(avatar + ' ' + username);
 
   return (
     <>
-      <h1>QUUUUIZZZ</h1>
-      <h2>Your IQ under attack</h2>
       <div className={styles["main-page-container"]}>
+        <h1>Quizy</h1>
+        <h2>Your IQ under attack</h2>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -86,8 +78,6 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
                 {avatar_print}
               </select>
             </label>
-          </div>
-          <div>
             <label htmlFor="user_name">
               Your Name
               <input
@@ -101,19 +91,21 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
               />
             </label>
           </div>
-          <button className="button" type="submit">
-            START
-          </button>
-        </form>
 
-        <button
-          className="button"
-          onClick={() => {
-            onChangePage(5);
-          }}
-        >
-          Learn more
-        </button>
+          <div className={styles["buttons-container-main"]}>
+            <button className={styles["button"]} type="submit">
+              Start
+            </button>
+            <button
+              className={styles["button"]}
+              onClick={() => {
+                onChangePage(5);
+              }}
+            >
+              Learn more
+            </button>
+          </div>
+        </form>
       </div>
     </>
   );

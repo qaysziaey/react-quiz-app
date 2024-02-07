@@ -19,7 +19,6 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
   let avatar = user.avatar;
 
   // Derived state
-
   const answers = data_of_questions.questions.map((question, index) => {
     if (checkBoxState[index] === undefined) {
       return -1;
@@ -90,10 +89,6 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
 
   let temp_answers = currentQuestion.answers;
 
-  // Calculate derived state
-
-  // console.log(temp_user_answers)
-
   return (
     <>
       <div className={styles["questions-container"]}>
@@ -101,8 +96,8 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
         <h2 className={styles["rounds-counter"]}>
           {currentQuestion.id}/{data_of_questions.questions.length}
         </h2>
+        <h2>{currentQuestion.question.text}</h2>
         <div className={styles["questions"]}>
-          <h2>{currentQuestion.question.text}</h2>
           <form>
             {temp_answers.map((answer, key) => (
               <label key={answer.number} className={styles["answer"]}>
@@ -116,14 +111,13 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
                   onChange={(event) => {
                     onCheckAnswer(event.target.value);
                   }}
-                  // Add onChange handler if you need to handle user selections
                 />
                 {answer.text}
               </label>
             ))}
           </form>
         </div>
-        <div className={styles["buttons-contanier"]}>
+        <div className={styles["buttons-container"]}>
           <button
             className="button"
             onClick={() => {
