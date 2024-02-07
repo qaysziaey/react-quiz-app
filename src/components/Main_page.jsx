@@ -34,11 +34,6 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
   );
 
   const avatar_print = avatars_array.map((value) => {
-    /*
-        if (index == 0) {
-            return (<option selected="selected" value={value}>{value}</option>);
-        }else{
-       */
     return (
       <option key={value.avatar} value={value.avatar}>
         {value.avatar} {value.text}
@@ -47,13 +42,11 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     //}
   });
 
-  //console.log(avatar + ' ' + username);
-
   return (
     <>
-      <h1>QUUUUIZZZ</h1>
-      <h2>Your IQ under attack</h2>
       <div className={styles["main-page-container"]}>
+        <h1>Round of Questios</h1>
+        <h2>Your IQ is under attack 🤯</h2>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -72,7 +65,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
             }
           }}
         >
-          <div>
+          <div className={styles["main-page-inputs"]}>
             <label htmlFor="avatar">
               Your Avatar
               <select
@@ -101,19 +94,20 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
               />
             </label>
           </div>
-          <button className="button" type="submit">
-            START
-          </button>
+          <div className="buttons-container">
+            <button className="button active-btn" type="submit">
+              Start
+            </button>
+            <button
+              className="button"
+              onClick={() => {
+                onChangePage(5);
+              }}
+            >
+              Learn more
+            </button>
+          </div>
         </form>
-
-        <button
-          className="button"
-          onClick={() => {
-            onChangePage(5);
-          }}
-        >
-          Learn more
-        </button>
       </div>
     </>
   );
