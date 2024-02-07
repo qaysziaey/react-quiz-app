@@ -1,5 +1,6 @@
 import styles from "./Question.module.css";
 import { data_of_questions } from "../data/data.js";
+import { languageList } from "../data/language.js";
 import { useState } from "react";
 
 export function Question({ user, users, onChangePage, onStartWithUser, language }) {
@@ -39,11 +40,11 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
     // Check if the answer is correct and set feedback
     const correctAnswerIndex = data_of_questions.questions[
       currentQuestionIndex
-    ].answers.findIndex((answer) => answer.richtich);
+    ].answers.findIndex((answer) => answer.correct);
     if (parseInt(value) === correctAnswerIndex) {
-      setFeedback("Correct");
+      setFeedback(languageList[language].Questions.text_correct);
     } else {
-      setFeedback("Incorrect");
+      setFeedback(languageList[language].Questions.text_incorrect);
     }
 
     onStartWithUser({
@@ -84,7 +85,7 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
 
   return (
     <div className={styles["questions-container"]}>
-      <h1>QUIZ QUESTIONS</h1>
+      <h1>{languageList[language].Questions.Title}</h1>
       <h2 className={styles["rounds-counter"]}>
         {currentQuestion.id}/{data_of_questions.questions.length}
       </h2>
@@ -113,7 +114,7 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
         {feedback && (
           <p
             className={
-              feedback === "Correct" ? styles["correct"] : styles["incorrect"]
+              feedback === languageList[language].Questions.text_correct ? styles["correct"] : styles["incorrect"]
             }
           >
             {feedback}
@@ -131,7 +132,7 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
             }
           }}
         >
-          {currentQuestionIndex <= 0 ? "Main" : "Back"}
+          {currentQuestionIndex <= 0 ? languageList[language].Questions.btn_main : languageList[language].Questions.btn_back}
         </button>
         <button
           className="button"
@@ -140,8 +141,8 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
           }}
         >
           {currentQuestionIndex >= data_of_questions.questions.length - 1
-            ? "Finish"
-            : "Next"}
+            ? languageList[language].Questions.btn_finish
+            : languageList[language].Questions.btn_next}
         </button>
       </div>
     </div>

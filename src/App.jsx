@@ -6,6 +6,7 @@ import { Question } from "./components/Question.jsx";
 import { Results } from "./components/Results.jsx";
 import { Learn_more } from "./components/Learn_more.jsx";
 import { Werbung } from "./components/Werbung.jsx";
+import { languageList } from "./data/language.js";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -53,7 +54,7 @@ function App() {
 
   return (
     <div className="app-main-container">
-      <button onClick={changeLanguage}>Change Language</button>
+      <button className="btn_language" onClick={changeLanguage}>{languageList[language].App.btn_change_lang}</button>
 
       {selected_page !== 1 ? (
         <div className="closeProfileLine">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./Main_page.module.css";
+import { languageList } from "../data/language.js";
 
 export function Main_page({ user, onChangePage, onStartWithUser, language }) {
   const avatars_array = [
@@ -57,7 +58,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
   return (
     <>
       <h1>QUUUUIZZZ</h1>
-      <h2>Your IQ under attack</h2>
+      <h2>{languageList[language].MainPage.Title}</h2>
       <div className={styles["main-page-container"]}>
         <form
           onSubmit={(event) => {
@@ -77,7 +78,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
         >
           <div>
             <label htmlFor="avatar">
-              Your Avatar
+              {languageList[language].MainPage.label_avatar}
               <select
                 name="avatar"
                 className={styles.avatar_select}
@@ -92,7 +93,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
           </div>
           <div>
             <label htmlFor="user_name">
-              Your Name
+              {languageList[language].MainPage.label_name}
               <input
                 type="text"
                 value={username}
@@ -105,7 +106,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
             </label>
           </div>
           <button className="button" type="submit">
-            START
+            {languageList[language].MainPage.btn_start}
           </button>
         </form>
 
@@ -115,7 +116,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
             onChangePage(5);
           }}
         >
-          Learn more
+          {languageList[language].MainPage.btn_learn_more}
         </button>
       </div>
     </>

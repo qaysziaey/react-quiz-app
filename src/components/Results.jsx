@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Results.module.css";
 import { data_of_questions } from "../data/data.js";
+import { languageList } from "../data/language.js";
 
 let Max_points =
   data_of_questions.prizes_by_points[
     data_of_questions.prizes_by_points.length - 1
   ].end;
 let resultPriseText = "";
+
+
 export function Results({ users, user, onChangePage, language }) {
   data_of_questions.prizes_by_points.forEach((prize, index) => {
     if (user.result >= prize.start && user.result <= prize.end) {
@@ -14,7 +17,7 @@ export function Results({ users, user, onChangePage, language }) {
     }
   });
 
-  const [message, setMessage] = useState({ text: "", color: "" });
+  const [message, setMessage] = useState({ text: {}, color: "" });
 
   console.log(user);
 
@@ -43,7 +46,7 @@ export function Results({ users, user, onChangePage, language }) {
               : styles.lowScore
           } ${user.result >= 80 ? styles.monkey : ""}`}
         >
-          {user.result > 0 ? user.result : "No answers provided"}
+          {user.result > 0 ? user.result : languageList[language].Results.text_no_answers}
         </h1>
         <div>{resultPriseText}</div>
         <span className={styles.notice}>(Maximum {Max_points})</span>
@@ -77,7 +80,7 @@ export function Results({ users, user, onChangePage, language }) {
         })}
       </div>
       <div className={`${styles.funText} ${styles.funnyAnimation}`}>
-        Having Fun with us!
+        {languageList[language].Results.text_have_fun}
       </div>
       <button
         className="button"
@@ -85,36 +88,30 @@ export function Results({ users, user, onChangePage, language }) {
           onChangePage(1);
         }}
       >
-        Play again
+        {languageList[language].Results.btn_play_again}
       </button>
     </>
   );
+
+
+  function animationForResult(percentage) {
+    if (percentage >= 80) {
+      return {
+        text: languageList[language].Results.text_80,
+        color: "green",
+      };
+    } else if (percentage >= 50) {
+      return {
+        text: languageList[language].Results.text_50,
+        color: "orange",
+      };
+    } else {
+      return {
+        text: languageList[language].Results.text_0,
+        color: "red",
+      };
+    }
+  }
+
 }
 
-function animationForResult(percentage) {
-  if (percentage >= 80) {
-    return {
-      text: {
-        EN:"Wow, you're a quiz master! Are you sure you haven't secretly been eating a dictionary for breakfast?",
-        DE:"Wow, du bist ein Quizmeister! Bist du sicher, dass du nicht heimlich ein Wörterbuch zum Frühstück gegessen hast?"
-      },
-      color: "green",
-    };
-  } else if (percentage >= 50) {
-    return {
-      text: {
-        EN:"Well done! You're almost at the top. A little more practice, and you'll conquer the quiz crown!",
-        DE:"Gut gemacht! Du bist fast ganz oben. Noch ein bisschen Übung, dann eroberst du die Quiz-Krone!"
-      },
-      color: "orange",
-    };
-  } else {
-    return {
-      text: {
-        EN:"Not bad! Remember: every master was once a beginner. On to the next try!",
-        DE:"Nicht schlecht! Denken Sie daran: Jeder Meister war einmal ein Anfänger. Auf zum nächsten Versuch!"
-      },
-      color: "red",
-    };
-  }
-}
