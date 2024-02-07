@@ -1,3 +1,5 @@
+/* Begin Code Snippet */
+
 .questions-container {
   display: flex;
   flex-direction: column;
@@ -7,94 +9,91 @@
   border-radius: 18px;
   height: inherit;
   padding: 20px;
-
-  h2 {
-    margin: 0;
-    color: black;
-    height: 40px;
-    font-size: 20px;
-    font-weight: 400;
-
-    /* text-shadow: 0 1px 3px rgba(0, 0, 0, 0.249); */
-  }
-  .questions {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    border-radius: 20px;
-    gap: 10px;
-    z-index: 1;
-    padding: 10px;
-
-    /* border: 1px solid rgba(255, 255, 255, 0.225); */
-    outline: 12px solid rgba(255, 255, 255, 0.152);
-    background-color: rgba(255, 255, 255, 0.152);
-    box-shadow: inset 0 1px rgba(255, 255, 255, 0.367);
-
-    border: 8px solid rgba(255, 255, 255, 0.152);
-    form {
-      display: flex;
-      border-radius: 16px;
-      flex-direction: column;
-      gap: 10px;
-      width: 400px;
-      /* border: 2px solid red; */
-
-      input[type="radio"] {
-        width: 18px;
-        height: 18px;
-        padding: 0;
-        margin: 0;
-      }
-      label {
-        display: flex;
-        align-items: center;
-        border: none;
-        padding: 12px 10px;
-        border-radius: 10px;
-        gap: 10px;
-        font-size: 16px;
-        color: rgba(0, 0, 0, 0.577);
-        transition: all 300ms;
-        /* border: 2px solid green; */
-        border: 1px solid rgba(0, 0, 0, 0.064);
-        box-shadow: 0 1px rgba(0, 0, 0, 0.367);
-
-        &:hover {
-          background-color: rgba(255, 255, 255, 0.47);
-          color: black;
-        }
-
-        input[type="text"] {
-          padding: 12px 10px;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          width: 100%;
-          background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(10px);
-          border-radius: 8px;
-          outline: 3px solid rgba(255, 255, 255, 0.166);
-          font-size: 16px;
-        }
-        select {
-          font-size: 18px;
-          padding: 5px 20px;
-          border-radius: 12px;
-          outline: 3px solid rgba(255, 255, 255, 0.166);
-        }
-      }
-    }
-  }
 }
 
-.buttons-container {
+.questions-container h2 {
+  margin: 0;
+  color: black;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.questions-container .questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  border-radius: 20px;
+  gap: 10px;
+  z-index: 1;
+  padding: 10px;
+  outline: 12px solid rgba(255, 255, 255, 0.152);
+  background-color: rgba(255, 255, 255, 0.152);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.367);
+  border: 8px solid rgba(255, 255, 255, 0.152);
+}
+
+.questions-container .questions form {
+  display: flex;
+  border-radius: 16px;
+  flex-direction: column;
+  gap: 10px;
+  width: 400px;
+}
+
+.questions-container .questions form input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.questions-container .questions form label {
+  display: flex;
+  align-items: center;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 10px;
+  gap: 10px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.577);
+  transition: all 300ms;
+  border: 1px solid rgba(0, 0, 0, 0.064);
+  box-shadow: 0 1px rgba(0, 0, 0, 0.367);
+}
+
+.questions-container .questions form label:hover {
+  background-color: rgba(255, 255, 255, 0.47);
+  color: black;
+}
+
+.questions-container .questions form label input[type="text"] {
+  padding: 12px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  outline: 3px solid rgba(255, 255, 255, 0.166);
+  font-size: 16px;
+}
+
+.questions-container .questions form label select {
+  font-size: 18px;
+  padding: 5px 20px;
+  border-radius: 12px;
+  outline: 3px solid rgba(255, 255, 255, 0.166);
+}
+
+.questions-container .buttons-container {
   display: flex;
   gap: 10px;
   border: 2px solid green;
   width: inherit;
-  width: inherit;
   justify-content: space-around;
   padding: 30px 0 20px 0;
+  width: inherit;
 }
 
 .rounds-counter {
@@ -108,9 +107,15 @@
   backdrop-filter: blur(19px);
   border: 1px solid rgba(0, 0, 0, 0.225);
 }
+
 .correct {
   accent-color: green;
+  border: 2px solid green;
 }
+
 .incorrect {
   accent-color: red;
+  border: 2px solid red;
 }
+
+/* End Code Snippet */
