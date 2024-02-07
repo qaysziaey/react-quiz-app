@@ -57,9 +57,10 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
 
   return (
     <>
-      <h1>QUUUUIZZZ</h1>
-      <h2>{languageList[language].MainPage.Title}</h2>
+
       <div className={styles["main-page-container"]}>
+        <h1>QUUUUIZZZ</h1>
+        <h2>{languageList[language].MainPage.Title} 🤯</h2>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -72,11 +73,11 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
                 totalScore,
               });
             } else {
-              alert("Enter Your name and choose Avatar");
+              alert(languageList[language].MainPage.alert_login);
             }
           }}
         >
-          <div>
+          <div className={styles["main-page-inputs"]}>
             <label htmlFor="avatar">
               {languageList[language].MainPage.label_avatar}
               <select

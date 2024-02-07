@@ -62,12 +62,10 @@ function App() {
   }
 
   function changePage(value) {
-    
     setSelected_Page(value);
-    if(value===3){
-      addToReusltLists()
+    if (value === 3) {
+      addToReusltLists();
     }
-
   }
 
   function startWithUser(props) {
@@ -90,9 +88,9 @@ function App() {
       <button className="btn_language" onClick={changeLanguage}>{languageList[language].App.btn_change_lang}</button>
 
       {selected_page !== 1 ? (
-        <div className="closeProfileLine">
+        <div className="app-main-header-inside">
           <span className="avatarProfile">
-            {user.avatar} <span>{user.username}</span>
+            <span>{user.avatar}</span> <span>{user.username}</span>
           </span>
           <button
             className="close-btn"

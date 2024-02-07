@@ -9,6 +9,7 @@ export const languageList = {
             'label_avatar': "Your Avatar",
             'label_name': "Your Name",
             'btn_learn_more': "Learn more",
+            'alert_login': "Enter Your name and choose Avatar"
         },
         'Questions':{
             'Title': "QUIZ QUESTIONS",
@@ -45,6 +46,7 @@ export const languageList = {
             'label_avatar': "Dein Avatar",
             'label_name': "Dein Name",
             'btn_learn_more': "Mehr erfahren",
+            'alert_login': "Geben Sie Ihren Namen ein und wählen Sie Avatar"
         },
         'Questions':{
             'Title': "QUIZFRAGEN",

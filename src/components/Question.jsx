@@ -3,55 +3,77 @@ import { data_of_questions } from "../data/data.js";
 import { languageList } from "../data/language.js";
 import { useState } from "react";
 
-export function Question({ user, users, onChangePage, onStartWithUser, language }) {
+export function Question({ user, onChangePage, onStartWithUser, language }) {
+
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState(
-    Array(data_of_questions.questions.length).fill(-1)
-  );
-  const [totalScore, setTotalScore] = useState(0);
   const [feedback, setFeedback] = useState("");
+  const [checkBoxState, setCheckBoxState] = useState([]);
 
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     setFeedback(""); // Reset feedback for the next question
   };
 
+
   const handlePreviousQuestion = () => {
     setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
     setFeedback(""); // Reset feedback for the previous question
   };
 
-  const username = user.username;
-  const avatar = user.avatar;
+  const { username, avatar } = user;
+
+  const answers = data_of_questions.questions.map((question, index) => {
+    if (checkBoxState[index] === undefined) {
+      return -1;
+    }
+    if (question.answers[checkBoxState[index]].correct) {
+      return question.question.points_for_right_answer;
+    } else {
+      return 0;
+    }
+  });
+
+  const totalScore = answers.reduce((acc, cur) => {
+    return acc + (cur >= 0 ? cur : 0);
+  }, 0);
+
+  
 
   const onCheckAnswer = (value) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestionIndex] = parseInt(value);
-    setAnswers(newAnswers);
 
-    let temp_total_Score = 0;
-    newAnswers.forEach((value, index) => {
-      if (value >= 0) {
-        temp_total_Score += value;
-      }
-    });
-    setTotalScore(temp_total_Score);
+    let tempCheckBoxState;
 
-    // Check if the answer is correct and set feedback
-    const correctAnswerIndex = data_of_questions.questions[
-      currentQuestionIndex
-    ].answers.findIndex((answer) => answer.correct);
-    if (parseInt(value) === correctAnswerIndex) {
-      setFeedback(languageList[language].Questions.text_correct);
+    if (currentQuestionIndex < checkBoxState.length) {
+
+      tempCheckBoxState = checkBoxState.map((state, index) => {
+        if (currentQuestionIndex === index) {
+          return Number(value);
+        } else {
+          return state;
+        }
+      })
+      setCheckBoxState(
+        tempCheckBoxState
+      );
+
     } else {
-      setFeedback(languageList[language].Questions.text_incorrect);
+      setCheckBoxState([...checkBoxState, Number(value)]);
     }
 
+    alert(tempCheckBoxState);
+
+/*
+    if(correct_){
+      setFeedback(languageList[language].Questions.text_correct);
+    }else{
+      setFeedback(languageList[language].Questions.text_incorrect);
+    }
+*/
     onStartWithUser({
       username,
       avatar,
-      answers: newAnswers,
-      totalScore: temp_total_Score,
+      answers,
+      totalScore,
     });
 
   };
@@ -59,16 +81,22 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
   const currentQuestion = data_of_questions.questions[currentQuestionIndex];
 
   if (currentQuestionIndex > data_of_questions.questions.length - 1) {
-    // TODO: in diese Platz machen users-add
-/*
+    let new_user = true;
+
+    
     onStartWithUser({
       username,
       avatar,
       answers,
       totalScore,
-    });    
-*/
+    });
+ 
+    
+    console.log(checkBoxState)
+    console.log(answers)
+
     onChangePage(3);
+
     return false;
 
   }
@@ -90,13 +118,15 @@ export function Question({ user, users, onChangePage, onStartWithUser, language 
                 name="forQuestion"
                 type="radio"
                 value={key}
-                checked={answers[currentQuestionIndex] === key}
+                checked={
+                  checkBoxState[currentQuestionIndex] == key ? true : false
+                }
                 onChange={(event) => {
                   onCheckAnswer(event.target.value);
                 }}
                 disabled={
-                  answers[currentQuestionIndex] >= 0 &&
-                  answers[currentQuestionIndex] !== key
+                  checkBoxState[currentQuestionIndex] >= 0 &&
+                  checkBoxState[currentQuestionIndex] !== key
                 }
               />
               {answer.text[language]}
