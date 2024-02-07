@@ -107,3 +107,16 @@ form {
 .incorrect{
   color:red;
 }
+
+
+label.answer{
+  color:white;
+}
+
+.disabled1{
+  color:red;
+}
+
+.enabled1{
+  color:green;
+}

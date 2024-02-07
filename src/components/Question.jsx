@@ -45,22 +45,19 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
 
     if (currentQuestionIndex < checkBoxState.length) {
 
-      tempCheckBoxState = checkBoxState.map((state, index) => {
+      console.log(checkBoxState.map((state, index) => {
         if (currentQuestionIndex === index) {
           return Number(value);
         } else {
           return state;
         }
-      })
-      setCheckBoxState(
-        tempCheckBoxState
-      );
+      }));
 
     } else {
       setCheckBoxState([...checkBoxState, Number(value)]);
     }
 
-    alert(tempCheckBoxState);
+    
 
 /*
     if(correct_){
@@ -103,6 +100,8 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
 
   const temp_answers = currentQuestion.answers;
 
+  console.log(checkBoxState)
+
   return (
     <div className={styles["questions-container"]}>
       <h1>{languageList[language].Questions.Title}</h1>
@@ -112,21 +111,33 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
       <div className={styles["questions"]}>
         <h2>{currentQuestion.question.text[language]}</h2>
         <form>
-          {temp_answers.map((answer, key) => (
-            <label key={answer.number} className={styles["answer"]}>
+          {temp_answers.map((answer, index) => (
+            <label key={index} className={  
+                styles[
+                    (
+                      index==checkBoxState[currentQuestionIndex] && answer.correct? "enabled1" : "disabled1"
+                    )
+                ] 
+              }
+              >
               <input
                 name="forQuestion"
                 type="radio"
-                value={key}
+                value={index}
                 checked={
-                  checkBoxState[currentQuestionIndex] == key ? true : false
+                  checkBoxState[currentQuestionIndex] == index ? true : false
                 }
                 onChange={(event) => {
                   onCheckAnswer(event.target.value);
+                  if(answer.correct){
+                    setFeedback(languageList[language].Questions.text_correct);
+                  }else{
+                    setFeedback(languageList[language].Questions.text_incorrect);
+                  }
                 }}
                 disabled={
                   checkBoxState[currentQuestionIndex] >= 0 &&
-                  checkBoxState[currentQuestionIndex] !== key
+                  checkBoxState[currentQuestionIndex] !== index
                 }
               />
               {answer.text[language]}
