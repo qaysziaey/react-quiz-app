@@ -2,7 +2,7 @@ import styles from "./Question.module.css";
 import { data_of_questions } from "../data/data.js";
 import { useState } from "react";
 
-export function Question({ user, users, onChangePage, onStartWithUser }) {
+export function Question({ user, users, onChangePage, onStartWithUser, language }) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(
     Array(data_of_questions.questions.length).fill(-1)
@@ -89,7 +89,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
         {currentQuestion.id}/{data_of_questions.questions.length}
       </h2>
       <div className={styles["questions"]}>
-        <h2>{currentQuestion.question.text}</h2>
+        <h2>{currentQuestion.question.text[language]}</h2>
         <form>
           {temp_answers.map((answer, key) => (
             <label key={answer.number} className={styles["answer"]}>
@@ -106,7 +106,7 @@ export function Question({ user, users, onChangePage, onStartWithUser }) {
                   answers[currentQuestionIndex] !== key
                 }
               />
-              {answer.text}
+              {answer.text[language]}
             </label>
           ))}
         </form>

@@ -7,10 +7,10 @@ let Max_points =
     data_of_questions.prizes_by_points.length - 1
   ].end;
 let resultPriseText = "";
-export function Results({ users, user, onChangePage, onStartWithUser }) {
+export function Results({ users, user, onChangePage, language }) {
   data_of_questions.prizes_by_points.forEach((prize, index) => {
     if (user.result >= prize.start && user.result <= prize.end) {
-      resultPriseText = prize.text;
+      resultPriseText = prize.text[language];
     }
   });
 
@@ -54,7 +54,7 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
         }`}
         style={{ opacity: 0.8, color: message.color }}
       >
-        <h2>{message.text}</h2>
+        <h2>{message.text[language]}</h2>
       </div>
       <div className={styles.table_of_results}>
         {users.map((person) => {
@@ -94,17 +94,26 @@ export function Results({ users, user, onChangePage, onStartWithUser }) {
 function animationForResult(percentage) {
   if (percentage >= 80) {
     return {
-      text: "Wow, you're a quiz master! Are you sure you haven't secretly been eating a dictionary for breakfast?",
+      text: {
+        EN:"Wow, you're a quiz master! Are you sure you haven't secretly been eating a dictionary for breakfast?",
+        DE:"Wow, du bist ein Quizmeister! Bist du sicher, dass du nicht heimlich ein Wörterbuch zum Frühstück gegessen hast?"
+      },
       color: "green",
     };
   } else if (percentage >= 50) {
     return {
-      text: "Well done! You're almost at the top. A little more practice, and you'll conquer the quiz crown!",
+      text: {
+        EN:"Well done! You're almost at the top. A little more practice, and you'll conquer the quiz crown!",
+        DE:"Gut gemacht! Du bist fast ganz oben. Noch ein bisschen Übung, dann eroberst du die Quiz-Krone!"
+      },
       color: "orange",
     };
   } else {
     return {
-      text: "Not bad! Remember: every master was once a beginner. On to the next try!",
+      text: {
+        EN:"Not bad! Remember: every master was once a beginner. On to the next try!",
+        DE:"Nicht schlecht! Denken Sie daran: Jeder Meister war einmal ein Anfänger. Auf zum nächsten Versuch!"
+      },
       color: "red",
     };
   }

@@ -4,48 +4,48 @@ export const data_of_questions = {
       start: 0,
       end: 10,
       text: {
-        english: "You are looooser!! 💩",
-        german: "Du bist ein Loser!! 💩",
+        EN: "You are looooser!! 💩",
+        DE: "Du bist ein Loser!! 💩",
       },
     },
     {
       start: 10,
       end: 19,
       text: {
-        english: "You are not looooser!! 😵‍💫",
-        german: "Du bist kein Loser!! 😵‍💫",
+        EN: "You are not looooser!! 😵‍💫",
+        DE: "Du bist kein Loser!! 😵‍💫",
       },
     },
     {
       start: 20,
       end: 29,
       text: {
-        english: "You are a normal tip!! 🤠",
-        german: "Du bist normal!! 🤠",
+        EN: "You are a normal tip!! 🤠",
+        DE: "Du bist normal!! 🤠",
       },
     },
     {
       start: 30,
       end: 39,
       text: {
-        english: "You are a good man!! 😤",
-        german: "Du bist ein guter Mensch!! 😤",
+        EN: "You are a good man!! 😤",
+        DE: "Du bist ein guter Mensch!! 😤",
       },
     },
     {
       start: 40,
       end: 100,
       text: {
-        english: "You are Superman!! 🤡",
-        german: "Du bist Superman!! 🤡",
+        EN: "You are Superman!! 🤡",
+        DE: "Du bist Superman!! 🤡",
       },
     },
     {
       start: 100,
       end: 150,
       text: {
-        english: "HyperChicken 🐔",
-        german: "HyperHuhn 🐔",
+        EN: "HyperChicken 🐔",
+        DE: "HyperHuhn 🐔",
       },
     },
   ],
@@ -54,8 +54,8 @@ export const data_of_questions = {
       id: 1,
       question: {
         text: {
-          english: "How do you select an element with id=demo?",
-          german: "Wie wählt man ein Element mit id=demo aus?",
+          EN: "How do you select an element with id=demo?",
+          DE: "Wie wählt man ein Element mit id=demo aus?",
         },
         points_for_right_answer: 25,
       },
@@ -63,32 +63,32 @@ export const data_of_questions = {
         {
           number: 1,
           text: {
-            english: "#demo",
-            german: "#demo",
+            EN: "#demo",
+            DE: "#demo",
           },
           correct: true,
         },
         {
           number: 2,
           text: {
-            english: ".demo",
-            german: ".demo",
+            EN: ".demo",
+            DE: ".demo",
           },
           correct: false,
         },
         {
           number: 3,
           text: {
-            english: "Demo",
-            german: "Demo",
+            EN: "Demo",
+            DE: "Demo",
           },
           correct: false,
         },
         {
           number: 4,
           text: {
-            english: "*demo",
-            german: "*demo",
+            EN: "*demo",
+            DE: "*demo",
           },
           correct: false,
         },
@@ -98,8 +98,8 @@ export const data_of_questions = {
       id: 2,
       question: {
         text: {
-          english: "What does CSS stand for?",
-          german: "Wofür steht CSS?",
+          EN: "What does CSS stand for?",
+          DE: "Wofür steht CSS?",
         },
         points_for_right_answer: 25,
       },
@@ -107,32 +107,32 @@ export const data_of_questions = {
         {
           number: 1,
           text: {
-            english: "Computer Style Sheets",
-            german: "Computer Stil Blätter",
+            EN: "Computer Style Sheets",
+            DE: "Computer Stil Blätter",
           },
           correct: false,
         },
         {
           number: 2,
           text: {
-            english: "Cascading Style Sheets",
-            german: "Kaskadierende Stil Blätter",
+            EN: "Cascading Style Sheets",
+            DE: "Kaskadierende Stil Blätter",
           },
           correct: true,
         },
         {
           number: 3,
           text: {
-            english: "Colored Style Sheets",
-            german: "Farbige Stil Blätter",
+            EN: "Colored Style Sheets",
+            DE: "Farbige Stil Blätter",
           },
           correct: false,
         },
         {
           number: 4,
           text: {
-            english: "Creative Style Sheets",
-            german: "Kreative Stil Blätter",
+            EN: "Creative Style Sheets",
+            DE: "Kreative Stil Blätter",
           },
           correct: false,
         },
@@ -142,8 +142,8 @@ export const data_of_questions = {
       id: 3,
       question: {
         text: {
-          english: "Which CSS syntax is correct?",
-          german: "Welche CSS-Syntax ist korrekt?",
+          EN: "Which CSS syntax is correct?",
+          DE: "Welche CSS-Syntax ist korrekt?",
         },
         points_for_right_answer: 25,
       },
@@ -151,32 +151,32 @@ export const data_of_questions = {
         {
           number: 1,
           text: {
-            english: "{body: color=black;}",
-            german: "{body: Farbe=Schwarz;}",
+            EN: "{body: color=black;}",
+            DE: "{body: Farbe=Schwarz;}",
           },
           correct: false,
         },
         {
           number: 2,
           text: {
-            english: " {body; color=black;}",
-            german: " {body; Farbe=Schwarz;}",
+            EN: " {body; color=black;}",
+            DE: " {body; Farbe=Schwarz;}",
           },
           correct: false,
         },
         {
           number: 3,
           text: {
-            english: "body {color: black;}",
-            german: "body {Farbe: Schwarz;}",
+            EN: "body {color: black;}",
+            DE: "body {Farbe: Schwarz;}",
           },
           correct: true,
         },
         {
           number: 4,
           text: {
-            english: "body: color=black;",
-            german: "body: Farbe=Schwarz;",
+            EN: "body: color=black;",
+            DE: "body: Farbe=Schwarz;",
           },
           correct: false,
         },
@@ -186,8 +186,8 @@ export const data_of_questions = {
       id: 4,
       question: {
         text: {
-          english: "What is the default value for position?",
-          german: "Was ist der Standardwert für die Position?",
+          EN: "What is the default value for position?",
+          DE: "Was ist der Standardwert für die Position?",
         },
         points_for_right_answer: 25,
       },
@@ -195,32 +195,32 @@ export const data_of_questions = {
         {
           number: 1,
           text: {
-            english: "relative",
-            german: "relativ",
+            EN: "relative",
+            DE: "relativ",
           },
           correct: false,
         },
         {
           number: 2,
           text: {
-            english: "fixed",
-            german: "fixiert",
+            EN: "fixed",
+            DE: "fixiert",
           },
           correct: false,
         },
         {
           number: 3,
           text: {
-            english: "absolute",
-            german: "absolut",
+            EN: "absolute",
+            DE: "absolut",
           },
           correct: false,
         },
         {
           number: 4,
           text: {
-            english: "static",
-            german: "statisch",
+            EN: "static",
+            DE: "statisch",
           },
           correct: true,
         },
@@ -230,8 +230,8 @@ export const data_of_questions = {
       id: 5,
       question: {
         text: {
-          english: "What is HTML?",
-          german: "Was ist HTML?",
+          EN: "What is HTML?",
+          DE: "Was ist HTML?",
         },
         points_for_right_answer: 25,
       },
@@ -239,40 +239,40 @@ export const data_of_questions = {
         {
           number: 1,
           text: {
-            english: "HTML",
-            german: "HTML",
+            EN: "HTML",
+            DE: "HTML",
           },
           correct: false,
         },
         {
           number: 2,
           text: {
-            english: "Hyper Dancing with a Lamp",
-            german: "Hyper Tanzen mit einer Lampe",
+            EN: "Hyper Dancing with a Lamp",
+            DE: "Hyper Tanzen mit einer Lampe",
           },
           correct: false,
         },
         {
           number: 3,
           text: {
-            english: "Hyper Text Markup Language",
-            german: "Hypertext-Auszeichnungssprache",
+            EN: "Hyper Text Markup Language",
+            DE: "Hypertext-Auszeichnungssprache",
           },
           correct: true,
         },
         {
           number: 4,
           text: {
-            english: "Higher Tone Muted Lighter",
-            german: "Höhere Ton Gedämpfter Leichter",
+            EN: "Higher Tone Muted Lighter",
+            DE: "Höhere Ton Gedämpfter Leichter",
           },
           correct: false,
         },
         {
           number: 5,
           text: {
-            english: "Horizontal Text Must Lost",
-            german: "Horizontaler Text Muss Verloren Gehen",
+            EN: "Horizontal Text Must Lost",
+            DE: "Horizontaler Text Muss Verloren Gehen",
           },
           correct: false,
         },

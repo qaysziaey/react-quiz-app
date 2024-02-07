@@ -6,7 +6,7 @@ const randomNumberInRange = (min, max) => {
         * (max - min + 1)) + min;
 };
 
-export function Werbung({ onChangePage }) {
+export function Werbung({ onChangePage, language }) {
     const werbungArrTake = randomNumberInRange(0, werbungList.length-1);
     console.log(werbungArrTake)
   return (

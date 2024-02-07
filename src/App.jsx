@@ -12,7 +12,7 @@ function App() {
   const [selected_page, setSelected_Page] = useState(1);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-  const [language, setLanguage] = useState("english");
+  const [language, setLanguage] = useState("EN");
 
   //  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
 
@@ -45,7 +45,7 @@ function App() {
     });
   }
   function changeLanguage() {
-    setLanguage(language === "english" ? "german" : "english");
+    setLanguage(language === "EN" ? "DE" : "EN");
   }
 
   //  console.log(user)
@@ -77,7 +77,7 @@ function App() {
       )}
 
       {selected_page === 5 ? (
-        <Learn_more />
+        <Learn_more language={language} />
       ) : selected_page === 2 ? (
         <Question
           user={user}
@@ -91,11 +91,10 @@ function App() {
           user={user}
           users={users}
           onChangePage={changePage}
-          onStartWithUser={startWithUser}
           language={language}
         />
       ) : selected_page === 3 ? (
-        <Werbung onChangePage={changePage} />
+        <Werbung onChangePage={changePage} language={language} />
       ) : (
         <Main_page
           user={user}

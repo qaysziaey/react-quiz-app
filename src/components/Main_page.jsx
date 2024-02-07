@@ -1,28 +1,43 @@
 import { useState } from "react";
 import styles from "./Main_page.module.css";
 
-export function Main_page({ user, onChangePage, onStartWithUser }) {
+export function Main_page({ user, onChangePage, onStartWithUser, language }) {
   const avatars_array = [
     { avatar: "", text: "" },
     {
       avatar: "😛",
-      text: "Just another day of being awesome!",
+      text: {
+        EN: "Just another day of being awesome!",
+        DE: "Einfach ein weiterer Tag voller Großartigkeit!",
+      }
     },
     {
       avatar: "🤪",
-      text: "Crazy like a fox!",
+      text: {
+        EN: "Crazy like a fox!",
+        DE: "Verrückt wie ein Fuchs!",
+      }
     },
     {
       avatar: "🥶",
-      text: "Don't even think about touching me!",
+      text: {
+        EN: "Don't even think about touching me!",
+        DE: "Denken Sie nicht einmal daran, mich zu berühren!",
+      }
     },
     {
       avatar: "🥵",
-      text: "This task is making me sweat!",
+      text: {
+        EN: "This task is making me sweat!",
+        DE: "Diese Aufgabe bringt mich ins Schwitzen!",
+      }
     },
     {
       avatar: "😤",
-      text: "I'm pumped up and ready to conquer!",
+      text: {
+        EN: "I'm pumped up and ready to conquer!",
+        DE: "Ich bin aufgepumpt und bereit für den Sieg!",
+      }
     },
   ];
 
@@ -35,7 +50,7 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
 
   const avatar_print = avatars_array.map((value) => (
     <option key={value.avatar} value={value.avatar}>
-      {value.avatar} {value.text}
+      {value.avatar} {value.text[language]}
     </option>
   ));
 
