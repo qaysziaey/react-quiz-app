@@ -3,60 +3,93 @@ export const data_of_questions = {
     {
       start: 0,
       end: 10,
-      text: "You are looooser!! 💩",
+      text: {
+        english: "You are looooser!! 💩",
+        german: "Du bist ein Loser!! 💩",
+      },
     },
     {
       start: 10,
       end: 19,
-      text: "You are not looooser!! 😵‍💫",
+      text: {
+        english: "You are not looooser!! 😵‍💫",
+        german: "Du bist kein Loser!! 😵‍💫",
+      },
     },
     {
       start: 20,
       end: 29,
-      text: "You are normal tip!! 🤠",
+      text: {
+        english: "You are a normal tip!! 🤠",
+        german: "Du bist normal!! 🤠",
+      },
     },
     {
       start: 30,
       end: 39,
-      text: "You are good man!! 😤",
+      text: {
+        english: "You are a good man!! 😤",
+        german: "Du bist ein guter Mensch!! 😤",
+      },
     },
     {
       start: 40,
       end: 100,
-      text: "You are Superman!! 🤡",
+      text: {
+        english: "You are Superman!! 🤡",
+        german: "Du bist Superman!! 🤡",
+      },
     },
     {
       start: 100,
       end: 150,
-      text: "HyperChicken 🐔",
+      text: {
+        english: "HyperChicken 🐔",
+        german: "HyperHuhn 🐔",
+      },
     },
   ],
   questions: [
     {
       id: 1,
       question: {
-        text: "Wie selektiert man ein Element mit id=demo?",
+        text: {
+          english: "How do you select an element with id=demo?",
+          german: "Wie wählt man ein Element mit id=demo aus?",
+        },
         points_for_right_answer: 25,
       },
       answers: [
         {
           number: 1,
-          text: "#demo",
+          text: {
+            english: "#demo",
+            german: "#demo",
+          },
           correct: true,
         },
         {
           number: 2,
-          text: ".demo",
+          text: {
+            english: ".demo",
+            german: ".demo",
+          },
           correct: false,
         },
         {
           number: 3,
-          text: "Demo",
+          text: {
+            english: "Demo",
+            german: "Demo",
+          },
           correct: false,
         },
         {
           number: 4,
-          text: "*demo",
+          text: {
+            english: "*demo",
+            german: "*demo",
+          },
           correct: false,
         },
       ],
@@ -64,28 +97,43 @@ export const data_of_questions = {
     {
       id: 2,
       question: {
-        text: "Wofür steht CSS?",
+        text: {
+          english: "What does CSS stand for?",
+          german: "Wofür steht CSS?",
+        },
         points_for_right_answer: 25,
       },
       answers: [
         {
           number: 1,
-          text: "Computer Style Sheets",
+          text: {
+            english: "Computer Style Sheets",
+            german: "Computer Stil Blätter",
+          },
           correct: false,
         },
         {
           number: 2,
-          text: "Cascading Style Sheets",
+          text: {
+            english: "Cascading Style Sheets",
+            german: "Kaskadierende Stil Blätter",
+          },
           correct: true,
         },
         {
           number: 3,
-          text: "Colored Style Sheets",
+          text: {
+            english: "Colored Style Sheets",
+            german: "Farbige Stil Blätter",
+          },
           correct: false,
         },
         {
           number: 4,
-          text: "Creative Style Sheets",
+          text: {
+            english: "Creative Style Sheets",
+            german: "Kreative Stil Blätter",
+          },
           correct: false,
         },
       ],
@@ -93,28 +141,43 @@ export const data_of_questions = {
     {
       id: 3,
       question: {
-        text: "Welche CSS Syntax ist korrekt?",
+        text: {
+          english: "Which CSS syntax is correct?",
+          german: "Welche CSS-Syntax ist korrekt?",
+        },
         points_for_right_answer: 25,
       },
       answers: [
         {
           number: 1,
-          text: "{body: color=black;}",
+          text: {
+            english: "{body: color=black;}",
+            german: "{body: Farbe=Schwarz;}",
+          },
           correct: false,
         },
         {
           number: 2,
-          text: " {body; color=black;}",
+          text: {
+            english: " {body; color=black;}",
+            german: " {body; Farbe=Schwarz;}",
+          },
           correct: false,
         },
         {
           number: 3,
-          text: "body {color: black;}",
+          text: {
+            english: "body {color: black;}",
+            german: "body {Farbe: Schwarz;}",
+          },
           correct: true,
         },
         {
           number: 4,
-          text: "body: color=black;",
+          text: {
+            english: "body: color=black;",
+            german: "body: Farbe=Schwarz;",
+          },
           correct: false,
         },
       ],
@@ -122,28 +185,43 @@ export const data_of_questions = {
     {
       id: 4,
       question: {
-        text: "Was ist der Defaultwert für position?",
+        text: {
+          english: "What is the default value for position?",
+          german: "Was ist der Standardwert für die Position?",
+        },
         points_for_right_answer: 25,
       },
       answers: [
         {
           number: 1,
-          text: "relative",
+          text: {
+            english: "relative",
+            german: "relativ",
+          },
           correct: false,
         },
         {
           number: 2,
-          text: "fixed",
+          text: {
+            english: "fixed",
+            german: "fixiert",
+          },
           correct: false,
         },
         {
           number: 3,
-          text: "absolute",
+          text: {
+            english: "absolute",
+            german: "absolut",
+          },
           correct: false,
         },
         {
           number: 4,
-          text: "static",
+          text: {
+            english: "static",
+            german: "statisch",
+          },
           correct: true,
         },
       ],
@@ -151,33 +229,51 @@ export const data_of_questions = {
     {
       id: 5,
       question: {
-        text: "Was ist HTML?",
+        text: {
+          english: "What is HTML?",
+          german: "Was ist HTML?",
+        },
         points_for_right_answer: 25,
       },
       answers: [
         {
           number: 1,
-          text: "HTML",
+          text: {
+            english: "HTML",
+            german: "HTML",
+          },
           correct: false,
         },
         {
           number: 2,
-          text: "Hyper Tanzen mit eine Lamp",
+          text: {
+            english: "Hyper Dancing with a Lamp",
+            german: "Hyper Tanzen mit einer Lampe",
+          },
           correct: false,
         },
         {
           number: 3,
-          text: "Hyper Text Markup Language",
+          text: {
+            english: "Hyper Text Markup Language",
+            german: "Hypertext-Auszeichnungssprache",
+          },
           correct: true,
         },
         {
           number: 4,
-          text: "Higher Tone Muted Lighter",
+          text: {
+            english: "Higher Tone Muted Lighter",
+            german: "Höhere Ton Gedämpfter Leichter",
+          },
           correct: false,
         },
         {
           number: 5,
-          text: "Horisontal Text Must Lost",
+          text: {
+            english: "Horizontal Text Must Lost",
+            german: "Horizontaler Text Muss Verloren Gehen",
+          },
           correct: false,
         },
       ],

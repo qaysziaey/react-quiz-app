@@ -6,23 +6,23 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     { avatar: "", text: "" },
     {
       avatar: "😛",
-      text: "Today a good day",
+      text: "Just another day of being awesome!",
     },
     {
       avatar: "🤪",
-      text: "Ready to get funny",
+      text: "Crazy like a fox!",
     },
     {
       avatar: "🥶",
-      text: "Don't touch me",
+      text: "Don't even think about touching me!",
     },
     {
       avatar: "🥵",
-      text: "It is hard task",
+      text: "This task is making me sweat!",
     },
     {
       avatar: "😤",
-      text: "I ma ready for that",
+      text: "I'm pumped up and ready to conquer!",
     },
   ];
 
@@ -33,21 +33,11 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
     user.totalScore ? user.totalScore : 0
   );
 
-  const avatar_print = avatars_array.map((value) => {
-    /*
-        if (index == 0) {
-            return (<option selected="selected" value={value}>{value}</option>);
-        }else{
-       */
-    return (
-      <option key={value.avatar} value={value.avatar}>
-        {value.avatar} {value.text}
-      </option>
-    );
-    //}
-  });
-
-  //console.log(avatar + ' ' + username);
+  const avatar_print = avatars_array.map((value) => (
+    <option key={value.avatar} value={value.avatar}>
+      {value.avatar} {value.text}
+    </option>
+  ));
 
   return (
     <>
@@ -58,7 +48,6 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
           onSubmit={(event) => {
             event.preventDefault();
             if (username && avatar) {
-              // console.log(avatar + ' ' + username);
               onChangePage(2);
               onStartWithUser({
                 username,
@@ -67,7 +56,6 @@ export function Main_page({ user, onChangePage, onStartWithUser }) {
                 totalScore,
               });
             } else {
-              // console.log(avatar + ' ' + username);
               alert("Enter Your name and choose Avatar");
             }
           }}

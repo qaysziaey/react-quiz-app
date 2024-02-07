@@ -12,6 +12,8 @@ function App() {
   const [selected_page, setSelected_Page] = useState(1);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
+  const [language, setLanguage] = useState("english");
+
   //  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
 
   //id of questuions
@@ -42,12 +44,17 @@ function App() {
       result: props.totalScore,
     });
   }
+  function changeLanguage() {
+    setLanguage(language === "english" ? "german" : "english");
+  }
 
   //  console.log(user)
   //console.log(selected_page)
 
   return (
     <div className="app-main-container">
+      <button onClick={changeLanguage}>Change Language</button>
+
       {selected_page !== 1 ? (
         <div className="closeProfileLine">
           <span className="avatarProfile">
@@ -77,6 +84,7 @@ function App() {
           users={users}
           onChangePage={changePage}
           onStartWithUser={startWithUser}
+          language={language}
         />
       ) : selected_page === 4 ? (
         <Results
@@ -84,6 +92,7 @@ function App() {
           users={users}
           onChangePage={changePage}
           onStartWithUser={startWithUser}
+          language={language}
         />
       ) : selected_page === 3 ? (
         <Werbung onChangePage={changePage} />
@@ -92,6 +101,7 @@ function App() {
           user={user}
           onChangePage={changePage}
           onStartWithUser={startWithUser}
+          language={language}
         />
       )}
     </div>
