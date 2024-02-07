@@ -32,17 +32,17 @@ function App() {
     }
   ]
 */
-  function addToReusltLists(){
+  function addToReusltLists(props){
 
     let new_user = true;
-    let temp_users = users;
+    let temp_users = props.usersList;
 
-    //console.log(user)
+    console.log(props)
 
     temp_users.forEach((value, index) => {
-      if (value.username == user.username && value.avatar == user.avatar) {
-        temp_users[index].answers = user.answers;
-        temp_users[index].result = user.result;
+      if (value.username == props.username && value.avatar == props.avatar) {
+        temp_users[index].answers = props.answers;
+        temp_users[index].result = props.result;
         new_user = false;
         return false;
       }
@@ -50,10 +50,10 @@ function App() {
 
     if (new_user) {
       temp_users.push({
-        username: user.username,
-        avatar: user.avatar,
-        answers: user.answers,
-        result: user.result,
+        username: props.username,
+        avatar: props.avatar,
+        answers: props.answers,
+        result: props.result,
       });
     }
   //  console.log(temp_users);
@@ -61,22 +61,29 @@ function App() {
 
   }
 
-  function changePage(value) {
+  function changePage(value, new_user = {}) {
     
     setSelected_Page(value);
-    if(value===3){
-      addToReusltLists()
-    }
+    if(value===3)
+    addToReusltLists({
+      username: new_user.username,
+      avatar: new_user.avatar,
+      answers: new_user.answers,
+      result: new_user.totalScore,
+      usersList: users
+    })
 
   }
 
   function startWithUser(props) {
+    
     setUser({
       username: props.username,
       avatar: props.avatar,
       answers: props.answers,
       result: props.totalScore,
     });
+
   }
 
   function changeLanguage() {

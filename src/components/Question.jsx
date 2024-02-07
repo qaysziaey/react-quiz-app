@@ -62,17 +62,6 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
 
     }
 
-    
-
-/*
-    if(correct_){
-      setFeedback(languageList[language].Questions.text_correct);
-    }else{
-      setFeedback(languageList[language].Questions.text_incorrect);
-    }
-*/
-
-/*
     const totalScore = answers.reduce((acc, cur) => {
       return acc + (cur >= 0 ? cur : 0);
     }, 0);
@@ -83,7 +72,7 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
       answers,
       totalScore,
     });
-*/
+
 
   };
 
@@ -106,11 +95,17 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
       answers,
       totalScore,
     });
+
  /*
     console.log(checkBoxState)
     console.log(answers)
 */
-    onChangePage(3);
+    onChangePage(3,{
+      username,
+      avatar,
+      answers,
+      totalScore,
+    });
 
     return false;
 
@@ -135,7 +130,8 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
                     (
                       checkBoxState[currentQuestionIndex]==undefined?'':
                     (
-                      index==checkBoxState[currentQuestionIndex] && answer.correct? "enabled_label" : "disabled_label"
+                      index==checkBoxState[currentQuestionIndex] && answer.correct? "enabled_label" : 
+                      (answer.correct?"enabled_label":"disabled_label")
                     ))
                 ] 
               }
