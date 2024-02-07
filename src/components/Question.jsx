@@ -114,9 +114,10 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
           {temp_answers.map((answer, index) => (
             <label key={index} className={  
                 styles[
+                    (checkBoxState[currentQuestionIndex]==undefined?'':
                     (
                       index==checkBoxState[currentQuestionIndex] && answer.correct? "enabled1" : "disabled1"
-                    )
+                    ))
                 ] 
               }
               >
