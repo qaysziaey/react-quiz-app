@@ -88,3 +88,15 @@
   position: relative;
   top: -9px;
 }
+
+
+.btn_language{
+  position: absolute;
+  left: 8px;
+  top: 40px;
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  z-index: 100;
+  cursor: pointer;
+}
