@@ -6,13 +6,15 @@ import { Question } from "./components/Question.jsx";
 import { Results } from "./components/Results.jsx";
 import { Learn_more } from "./components/Learn_more.jsx";
 import { Werbung } from "./components/Werbung.jsx";
+import { languageList } from "./data/language.js";
 
 function App() {
   const [count, setCount] = useState(0);
   const [selected_page, setSelected_Page] = useState(1);
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
-  
+  const [language, setLanguage] = useState("EN");
+
   //  const [pullOfQuestions, setPullOfQuestions] = useState([2]); Random Maybe
 
   //id of questuions
@@ -76,12 +78,17 @@ function App() {
       result: props.totalScore,
     });
   }
+  function changeLanguage() {
+    setLanguage(language === "EN" ? "DE" : "EN");
+  }
 
   //  console.log(user)
   //console.log(selected_page)
 
   return (
     <div className="app-main-container">
+      <button className="btn_language" onClick={changeLanguage}>{languageList[language].App.btn_change_lang}</button>
+
       {selected_page !== 1 ? (
         <div className="closeProfileLine">
           <span className="avatarProfile">
@@ -104,27 +111,29 @@ function App() {
       )}
 
       {selected_page === 5 ? (
-        <Learn_more />
+        <Learn_more language={language} />
       ) : selected_page === 2 ? (
         <Question
           user={user}
           onChangePage={changePage}
           onStartWithUser={startWithUser}
+          language={language}
         />
       ) : selected_page === 4 ? (
         <Results
           user={user}
           users={users}
           onChangePage={changePage}
-          onStartWithUser={startWithUser}
+          language={language}
         />
       ) : selected_page === 3 ? (
-        <Werbung onChangePage={changePage} />
+        <Werbung onChangePage={changePage} language={language} />
       ) : (
         <Main_page
           user={user}
           onChangePage={changePage}
           onStartWithUser={startWithUser}
+          language={language}
         />
       )}
     </div>
