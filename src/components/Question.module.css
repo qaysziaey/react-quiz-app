@@ -208,8 +208,7 @@
   background-color: rgba(0, 0, 0, 0.098);
   border-radius: 50px;
   position: absolute;
-  top: 0;
-  right: 50px;
+  top: 200px;
 }
 
 .baloon_incorrect {
@@ -222,5 +221,4 @@
   border-radius: 50px;
   position: absolute;
   top: 200px;
-  right: 50px;
 }

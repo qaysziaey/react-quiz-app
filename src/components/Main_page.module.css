@@ -57,13 +57,14 @@ form label input[type="text"] {
   border-radius: 12px;
   outline: 2px solid rgba(0, 0, 0, 0.152);
   font-size: 16px;
-  width: 350px;
+  width: 300px;
 }
 
 form label select {
-  font-size: 16px;
+  width: 320px;
+  font-size: 12px;
   padding: 12px 10px;
-  border-radius: 12px;
+  border-radius: 18px;
   outline: 2px solid rgba(0, 0, 0, 0.152);
 }
 

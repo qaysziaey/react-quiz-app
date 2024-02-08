@@ -24,7 +24,7 @@ export const languageList = {
       btn_close_ad: "Close Ad",
     },
     Results: {
-      text_have_fun: "Having Fun with us!",
+      text_have_fun: "Hope you had fun!",
       btn_play_again: "Play again",
       label_dier: "Dier",
       label_your_results: "Your results",
@@ -37,8 +37,8 @@ export const languageList = {
         "Not bad! Remember: every master was once a beginner. On to the next try!",
     },
     Learn_more: {
-      text1: "is a bester game of the world!!!",
-      text2: "And we make it!",
+      text1: "The best app to test your knowledge.",
+      // text2: "And we make it!",
     },
   },
   DE: {
@@ -66,7 +66,7 @@ export const languageList = {
       btn_close_ad: "Anzeige schließen",
     },
     Results: {
-      text_have_fun: "Viel Spaß mit uns!",
+      text_have_fun: "Hoffentlich hat spaß gemacht!",
       btn_play_again: "Nochmal abspielen",
       label_dier: "Liebe",
       label_your_results: "Deine Ergebnisse",
@@ -79,8 +79,8 @@ export const languageList = {
         "Nicht schlecht! Denken Sie daran: Jeder Meister war einmal ein Anfänger. Auf zum nächsten Versuch!",
     },
     Learn_more: {
-      text1: "ist das beste Spiel der Welt!!!",
-      text2: "Und wir schaffen es!",
+      text1: "Die beste App, um deine Wissen zu testen. ",
+      // text2: "Und wir schaffen es!",
     },
   },
 };

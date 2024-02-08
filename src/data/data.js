@@ -44,8 +44,8 @@ export const data_of_questions = {
       start: 100,
       end: 150,
       text: {
-        EN: "HyperChicken 🐔",
-        DE: "HyperHuhn 🐔",
+        EN: "Hyper Chicken 🐔",
+        DE: "Hyper Huhn 🐔",
       },
     },
   ],

@@ -96,12 +96,11 @@ function App() {
               {user.avatar} <span>{user.username}</span>
             </span>
           </div>
+
           <div>
             <button className="btn_language" onClick={changeLanguage}>
               {languageList[language].App.btn_change_lang}
             </button>
-          </div>
-          <div>
             <button
               className="close-btn"
               onClick={(event) => {

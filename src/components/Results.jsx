@@ -9,24 +9,22 @@ let Max_points =
   ].end;
 let resultPriseText = "";
 
-  
-  export function Results({ users, user, onChangePage, language }) {
+export function Results({ users, user, onChangePage, language }) {
+  data_of_questions.prizes_by_points.forEach((prize, index) => {
+    if (user.result >= prize.start && user.result <= prize.end) {
+      resultPriseText = prize.text[language];
+    }
+  });
 
-    data_of_questions.prizes_by_points.forEach((prize, index) => {
-      if (user.result >= prize.start && user.result <= prize.end) {
-        resultPriseText = prize.text[language];
-      }
-    });
-  
-    const [message, setMessage] = useState({ text: {}, color: "" });
+  const [message, setMessage] = useState({ text: {}, color: "" });
 
-//  console.log(user);
+  //  console.log(user);
 
   useEffect(() => {
     if (user.result && Max_points > 0) {
       const percentage = (user.result / Max_points) * 100;
- //     console.log(percentage, user.result, Max_points);
- //     console.log(message);
+      //     console.log(percentage, user.result, Max_points);
+      //     console.log(message);
       const resultAnimation = animationForResult(percentage);
 
       setMessage(resultAnimation);
@@ -38,64 +36,63 @@ let resultPriseText = "";
   return (
     <>
       <div className={styles["results-main-container"]}>
-      <h1>
-    {languageList[language].Results.label_dier} <span>{user.username}</span> ({user.avatar})
-    <div>{languageList[language].Results.label_your_results}:</div>
-      </h1>
-      <h2
-    
-        className={`${styles.score} ${
-          user.result >= 80
-            ? styles.heightScore
-            : user.result >= 50
-            ? styles.mediumScore
-            : styles.lowScore
-        } ${user.result >= 80 ? styles.monkey : ""}`}
-      >
-        {user.result > 0 ? user.result : languageList[language].Results.text_no_answers}
-      </h2>
-      <div>{resultPriseText}</div>
-      <span className={styles.notice}>(Maximum {Max_points})</span>
+        <div className={styles["result-header"]}>
+          <div>
+            <h2>{user.username}</h2>
+            <h3>{languageList[language].Results.label_your_results}</h3>
           </div>
-          <div
-            className={`${styles.messageContainer} ${
-              message.color && styles[message.color]
-            }`}
-            style={{ opacity: 0.8, color: message.color }}
-          >
-        <h2>{message.text[language]}</h2>
+          <h1>{resultPriseText}</h1>
+        </div>
+        <h2
+          className={`${styles.score} ${
+            user.result >= 80
+              ? styles.heightScore
+              : user.result >= 50
+              ? styles.mediumScore
+              : styles.lowScore
+          } `}
+        >
+          {user.result > 0
+            ? user.result
+            : languageList[language].Results.text_no_answers}
+        </h2>
+
+        {/* <span className={styles.notice}>(Maximum {Max_points})</span> */}
+        {/* <div>
+          <h2>{message.text[language]}language</h2>
+        </div> */}
+        <div className={styles.table_of_results}>
+          {users.map((person) => {
+            return (
+              <div
+                className={
+                  styles.table_person +
+                  " " +
+                  (person.avatar == user.avatar &&
+                  person.username == user.username
+                    ? styles.thisUser
+                    : "")
+                }
+              >
+                <div className={styles.personAvatar}>{person.avatar}</div>
+                <div className={styles.personUsername}>{person.username}</div>
+                <div className={styles.personResult}>{person.result}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div className={`${styles.funText} ${styles.funnyAnimation}`}>
+          {languageList[language].Results.text_have_fun}
+        </div>
+        <button
+          className={styles["button"]}
+          onClick={() => {
+            onChangePage(1);
+          }}
+        >
+          {languageList[language].Results.btn_play_again}
+        </button>
       </div>
-      <div className={styles.table_of_results}>
-        {users.map((person) => {
-          return (
-            <div
-              className={
-                styles.table_person +
-                " " +
-                (person.avatar == user.avatar &&
-                person.username == user.username
-                  ? styles.thisUser
-                  : "")
-              }
-            >
-              <div className={styles.personAvatar}>{person.avatar}</div>
-              <div className={styles.personUsername}>{person.username}</div>
-              <div className={styles.personResult}>{person.result}</div>
-            </div>
-          );
-        })}
-      </div>
-      <div className={`${styles.funText} ${styles.funnyAnimation}`}>
-        {languageList[language].Results.text_have_fun}
-      </div>
-      <button
-        className="button"
-        onClick={() => {
-          onChangePage(1);
-        }}
-      >
-        {languageList[language].Results.btn_play_again}
-      </button>
     </>
   );
 
@@ -117,7 +114,4 @@ let resultPriseText = "";
       };
     }
   }
-
 }
-
-
