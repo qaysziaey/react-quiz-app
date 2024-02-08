@@ -4,7 +4,9 @@
   align-items: center;
   height: inherit;
   width: inherit;
-  justify-content: space-evenly;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
 .learn-more-container h1 {
   font-size: 46px;

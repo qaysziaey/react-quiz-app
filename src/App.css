@@ -20,12 +20,12 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   border-radius: 24px;
   gap: 10;
   width: inherit;
-  min-width: 600px;
+  min-width: 500px;
   min-height: 600px;
   height: inherit;
   padding: 10px;

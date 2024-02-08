@@ -13,7 +13,7 @@ export function Learn_more({ language }) {
         <div className={styles["buttons-container"]}>
           <button>Raghad</button>
           <button>Qais</button>
-          <button>Olekssi</button>
+          <button>Oleksii</button>
         </div>
       </div>
     </div>

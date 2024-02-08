@@ -208,11 +208,10 @@
   background-color: rgba(0, 0, 0, 0.098);
   border-radius: 50px;
   position: absolute;
-  top: 200px;
+  top: 170px;
 }
 
 .baloon_incorrect {
-  color: red;
   color: white;
   font-size: 14px;
   border-radius: 50px;
@@ -220,7 +219,7 @@
   background-color: rgba(0, 0, 0, 0.098);
   border-radius: 50px;
   position: absolute;
-  top: 200px;
+  top: 170px;
 }
 
 @media only screen and (max-width: 767px) {
