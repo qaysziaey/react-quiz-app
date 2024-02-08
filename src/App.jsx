@@ -36,7 +36,7 @@ function App() {
     let new_user = true;
     let temp_users = props.usersList;
 
-    console.log(props);
+    // console.log(props);
 
     temp_users.forEach((value, index) => {
       if (value.username == props.username && value.avatar == props.avatar) {

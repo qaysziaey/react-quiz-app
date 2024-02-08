@@ -45,6 +45,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
   const [avatar, setAvatar] = useState(user.avatar ? user.avatar : "");
   const [username, setUsername] = useState(user.username ? user.username : "");
   const [answers, setAnswers] = useState(user.answers ? user.answers : []);
+  const [errorMessage, setErrorMessage] = useState("");
   const [totalScore, setTotalScore] = useState(
     user.totalScore ? user.totalScore : 0
   );
@@ -62,6 +63,7 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
       <div className={styles["main-page-container"]}>
         <h1>Quizy</h1>
         <h2>{languageList[language].MainPage.Title} 🤯</h2>
+        <p className={styles["error-message"]}>{errorMessage}</p>
         <form
           onSubmit={(event) => {
             event.preventDefault();
@@ -76,7 +78,9 @@ export function Main_page({ user, onChangePage, onStartWithUser, language }) {
               });
             } else {
               // console.log(avatar + ' ' + username);
-              alert(languageList[language].MainPage.alert_login);
+              // alert(languageList[language].MainPage.alert_login);
+              // const errorMessage = languageList[language].MainPage.alert_login;
+              setErrorMessage(languageList[language].MainPage.alert_login);
             }
           }}
         >
