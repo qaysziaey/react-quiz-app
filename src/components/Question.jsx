@@ -174,32 +174,32 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
               </label>
             ))}
           </form>
-        </div>
-        <div className={styles["buttons-container"]}>
-          <button
-            className={styles.button}
-            onClick={() => {
-              if (currentQuestionIndex <= 0) {
-                onChangePage(1);
-              } else {
-                handlePreviousQuestion();
-              }
-            }}
-          >
-            {currentQuestionIndex <= 0
-              ? languageList[language].Questions.btn_main
-              : languageList[language].Questions.btn_back}
-          </button>
-          <button
-            className={styles.button}
-            onClick={() => {
-              handleNextQuestion();
-            }}
-          >
-            {currentQuestionIndex >= data_of_questions.questions.length - 1
-              ? languageList[language].Questions.btn_finish
-              : languageList[language].Questions.btn_next}
-          </button>
+          <div className={styles["buttons-container"]}>
+            <button
+              className={styles.button}
+              onClick={() => {
+                if (currentQuestionIndex <= 0) {
+                  onChangePage(1);
+                } else {
+                  handlePreviousQuestion();
+                }
+              }}
+            >
+              {currentQuestionIndex <= 0
+                ? languageList[language].Questions.btn_main
+                : languageList[language].Questions.btn_back}
+            </button>
+            <button
+              className={styles.button}
+              onClick={() => {
+                handleNextQuestion();
+              }}
+            >
+              {currentQuestionIndex >= data_of_questions.questions.length - 1
+                ? languageList[language].Questions.btn_finish
+                : languageList[language].Questions.btn_next}
+            </button>
+          </div>
         </div>
       </div>
     </>
