@@ -1,9 +1,9 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+} */
 /* 
 .logo {
   height: 6em;
@@ -20,12 +20,14 @@
   padding: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border-radius: 24px;
   gap: 10;
-  width: 500px;
-  height: 700px;
+  width: inherit;
+  min-width: 500px;
+  min-height: 600px;
+  height: inherit;
   padding: 10px;
   color: #2f3542;
   background: rgba(255, 255, 255, 0.368);
@@ -81,7 +83,6 @@
 
 .btn_language {
   border: none;
-  background: red;
   font-size: 14px;
   cursor: pointer;
   border-radius: 100px;
@@ -95,4 +96,27 @@
 }
 .btn_language:hover {
   color: rgba(255, 255, 255, 0.576);
+}
+
+@media only screen and (max-width: 767px) {
+  /* CSS code specific to mobile devices goes here */
+
+  .app-main-container {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    /* width: 100vw; */
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+  }
+  .closeProfileLine {
+    width: 90%;
+  }
+}
+
+/* Media query for screens larger than 768px (typical desktop devices) */
+@media only screen and (min-width: 768px) {
+  /* CSS code specific to desktop devices goes here */
 }

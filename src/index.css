@@ -24,15 +24,15 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  /* max-width: 1280px; */
 
-  /* background-color: #043365; */
-  /* background-image: url("https://images.unsplash.com/photo-1618004912476-29818d81ae2e?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"); */
   background-size: cover;
   background-repeat: no-repeat;
   border-image: fill 0 linear-gradient(#0003, #ededed);
-  background-color: hsla(0, 100%, 50%, 1);
+  background-color: white;
   background-image: radial-gradient(
       at 38% 20%,
       hsla(28, 100%, 74%, 1) 0px,
@@ -54,8 +54,17 @@ p {
   margin: 0;
 }
 
-.app-main-container {
-  position: relative;
-  z-index: 1;
-  display: flex;
+@media only screen and (max-width: 767px) {
+  /* CSS code specific to mobile devices goes here */
+  body {
+    background-color: white;
+    display: block;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+/* Media query for screens larger than 768px (typical desktop devices) */
+@media only screen and (min-width: 768px) {
+  /* CSS code specific to desktop devices goes here */
 }

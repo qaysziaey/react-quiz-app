@@ -3,7 +3,7 @@
 .questions-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 20px;
   border-radius: 18px;
@@ -96,7 +96,6 @@
 .questions-container .buttons-container {
   display: flex;
   gap: 10px;
-
   width: inherit;
   justify-content: space-around;
   padding: 10px;
@@ -155,6 +154,7 @@
   font-weight: 400;
   color: white;
   letter-spacing: 10px;
+  text-align: center;
 }
 .feedback {
   font-family: "Comic Sans MS", cursive;
@@ -221,4 +221,33 @@
   border-radius: 50px;
   position: absolute;
   top: 200px;
+}
+
+@media only screen and (max-width: 767px) {
+  /* CSS code specific to mobile devices goes here */
+
+  .questions-container {
+    padding: 0;
+  }
+  .questions-container .questions form {
+    display: flex;
+    border-radius: 16px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 40px;
+  }
+  .questions-container .questions form h2 {
+    font-size: 16px;
+    letter-spacing: 0.2px;
+    color: #5352ed;
+    padding-bottom: 30px;
+  }
+  .buttons-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
 }
