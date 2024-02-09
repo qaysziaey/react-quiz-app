@@ -108,100 +108,96 @@ export function Question({ user, onChangePage, onStartWithUser, language }) {
   console.log(checkBoxState);
 
   return (
-    <>
-      <div className={styles["questions-container"]}>
-        <div>
-          <h1>{languageList[language].Questions.Title}</h1>
-          <h2 className={styles["rounds-counter"]}>
-            {currentQuestion.id}/{data_of_questions.questions.length}
-          </h2>
+    <div className={styles["questions-container"]}>
+      <div>
+        <h1>{languageList[language].Questions.Title}</h1>
+        <h2 className={styles["rounds-counter"]}>
+          {currentQuestion.id}/{data_of_questions.questions.length}
+        </h2>
+      </div>
+      {feedback && (
+        <div
+          className={
+            feedback === languageList[language].Questions.text_correct
+              ? styles["baloon_correct"]
+              : styles["baloon_incorrect"]
+          }
+        >
+          {feedback}
         </div>
-        {feedback && (
-          <div
-            className={
-              feedback === languageList[language].Questions.text_correct
-                ? styles["baloon_correct"]
-                : styles["baloon_incorrect"]
-            }
+      )}
+      <div className={styles["questions"]}>
+        <form>
+          <h2>{currentQuestion.question.text[language]}</h2>
+          {temp_answers.map((answer, index) => (
+            <label
+              key={index}
+              className={
+                styles[
+                  checkBoxState[currentQuestionIndex] == undefined
+                    ? ""
+                    : index == checkBoxState[currentQuestionIndex] &&
+                      answer.correct
+                    ? "enabled_label"
+                    : answer.correct
+                    ? "enabled_label"
+                    : "disabled_label"
+                ]
+              }
+            >
+              <input
+                name="forQuestion"
+                type="radio"
+                value={index}
+                checked={
+                  checkBoxState[currentQuestionIndex] == index ? true : false
+                }
+                onChange={(event) => {
+                  onCheckAnswer(event.target.value);
+                  if (answer.correct) {
+                    setFeedback(languageList[language].Questions.text_correct);
+                  } else {
+                    setFeedback(
+                      languageList[language].Questions.text_incorrect
+                    );
+                  }
+                }}
+                disabled={
+                  checkBoxState[currentQuestionIndex] >= 0 &&
+                  checkBoxState[currentQuestionIndex] !== index
+                }
+              />
+              {answer.text[language]}
+            </label>
+          ))}
+        </form>
+        <div className={styles["buttons-container"]}>
+          <button
+            className={styles.button}
+            onClick={() => {
+              if (currentQuestionIndex <= 0) {
+                onChangePage(1);
+              } else {
+                handlePreviousQuestion();
+              }
+            }}
           >
-            {feedback}
-          </div>
-        )}
-        <div className={styles["questions"]}>
-          <form>
-            <h2>{currentQuestion.question.text[language]}</h2>
-            {temp_answers.map((answer, index) => (
-              <label
-                key={index}
-                className={
-                  styles[
-                    checkBoxState[currentQuestionIndex] == undefined
-                      ? ""
-                      : index == checkBoxState[currentQuestionIndex] &&
-                        answer.correct
-                      ? "enabled_label"
-                      : answer.correct
-                      ? "enabled_label"
-                      : "disabled_label"
-                  ]
-                }
-              >
-                <input
-                  name="forQuestion"
-                  type="radio"
-                  value={index}
-                  checked={
-                    checkBoxState[currentQuestionIndex] == index ? true : false
-                  }
-                  onChange={(event) => {
-                    onCheckAnswer(event.target.value);
-                    if (answer.correct) {
-                      setFeedback(
-                        languageList[language].Questions.text_correct
-                      );
-                    } else {
-                      setFeedback(
-                        languageList[language].Questions.text_incorrect
-                      );
-                    }
-                  }}
-                  disabled={
-                    checkBoxState[currentQuestionIndex] >= 0 &&
-                    checkBoxState[currentQuestionIndex] !== index
-                  }
-                />
-                {answer.text[language]}
-              </label>
-            ))}
-          </form>
-          <div className={styles["buttons-container"]}>
-            <button
-              className={styles.button}
-              onClick={() => {
-                if (currentQuestionIndex <= 0) {
-                  onChangePage(1);
-                } else {
-                  handlePreviousQuestion();
-                }
-              }}
-            >
-              {currentQuestionIndex <= 0
-                ? languageList[language].Questions.btn_main
-                : languageList[language].Questions.btn_back}
-            </button>
-            <button
-              className={styles.button}
-              onClick={() => {
-                handleNextQuestion();
-              }}
-            >
-              {currentQuestionIndex >= data_of_questions.questions.length - 1
-                ? languageList[language].Questions.btn_finish
-                : languageList[language].Questions.btn_next}
-            </button>
-          </div>
+            {currentQuestionIndex <= 0
+              ? languageList[language].Questions.btn_main
+              : languageList[language].Questions.btn_back}
+          </button>
+          <button
+            className={styles.button}
+            onClick={() => {
+              handleNextQuestion();
+            }}
+          >
+            {currentQuestionIndex >= data_of_questions.questions.length - 1
+              ? languageList[language].Questions.btn_finish
+              : languageList[language].Questions.btn_next}
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
