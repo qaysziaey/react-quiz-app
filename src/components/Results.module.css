@@ -141,9 +141,6 @@
 .table_of_results {
   height: 200px;
   overflow-y: auto;
-  /* margin-top: 20px; */
-  /* border: 2px solid green; */
-  padding: 0 40px;
 }
 
 .table_person {
@@ -161,9 +158,11 @@
 }
 
 .table_person.thisUser {
-  background: #5352ed;
-  border: 1px solid #5352ed;
-  color: white;
+  /* background: #5e66f6;
+   */
+  background-color: white;
+  /* border: 1px solid #5352ed; */
+  color: black;
 }
 
 .personAvatar {
